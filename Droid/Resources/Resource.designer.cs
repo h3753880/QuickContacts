@@ -27,6 +27,8 @@ namespace QuickContacts.Droid
 		public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::QuickContacts.Droid.Resource.Attribute.actionBarSize;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::QuickContacts.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::QuickContacts.Droid.Resource.String.Hello;
 			global::FacebookMonoDroid.Resource.String.library_name = global::QuickContacts.Droid.Resource.String.library_name;
 		}
 		
@@ -2952,6 +2954,12 @@ namespace QuickContacts.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f060028
+			public const int ApplicationName = 2131099688;
+			
+			// aapt resource value: 0x7f060027
+			public const int Hello = 2131099687;
 			
 			// aapt resource value: 0x7f060012
 			public const int abc_action_bar_home_description = 2131099666;

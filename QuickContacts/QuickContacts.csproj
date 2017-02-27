@@ -51,6 +51,9 @@
     <EmbeddedResource Include="ProfileEditPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="NoInternetPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -85,6 +88,9 @@
     <Compile Include="QContactDB.cs" />
     <Compile Include="ProfileEditPage.xaml.cs">
       <DependentUpon>ProfileEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoInternetPage.xaml.cs">
+      <DependentUpon>NoInternetPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
