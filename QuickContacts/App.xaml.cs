@@ -4,6 +4,9 @@ namespace QuickContacts
 {
 	public partial class App : Application
 	{
+		const string qc_fbId = "qc_fbId";
+		const string qc_name = "qc_name";
+
 		public string Name { get; set; }
 		public string FbId { get; set; }
 
@@ -11,7 +14,16 @@ namespace QuickContacts
 		{
 			InitializeComponent();
 
-			MainPage = new QuickContactsPage();
+			if (Properties.ContainsKey(displayLabelText))
+			{
+				FbId = (string)Properties[qc_fbId];
+				MainPage = new ProfilePage();
+			}
+			else
+			{
+				MainPage = new QuickContactsPage();
+			}
+
 		}
 
 		protected override void OnStart()
