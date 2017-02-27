@@ -65,11 +65,11 @@ namespace QuickContacts
 					string fbId = result["id"].ToString();
 					string name = result["name"].ToString();
 					MainPage nextPage = new MainPage();
-					App app = Application.Current as App;
 
 					//store user info
-					app.Name = name;
-					app.FbId = fbId;
+					Helpers.Settings.UserName = name;
+					Helpers.Settings.UserId = fbId;
+
 				    await Navigation.PushModalAsync(nextPage);
 
 				}

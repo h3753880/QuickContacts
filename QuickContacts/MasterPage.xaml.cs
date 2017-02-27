@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace QuickContacts
@@ -15,10 +14,12 @@ namespace QuickContacts
 
 			//create nav item
 			var masterPageItems = new List<MasterPageItem>();
+			string name = Helpers.Settings.UserName;//get user name from fb
+			string fbId = Helpers.Settings.UserId;//get user id from fb
 
 			masterPageItems.Add(new MasterPageItem
 			{
-				Title = "Bob Stone",
+				Title = name,
 				IconSource = "profile.jpg",
 				TargetType = typeof(ProfilePage)
 			});
