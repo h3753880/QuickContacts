@@ -7,6 +7,7 @@ namespace QuickContacts
 		public QuickContactsPage()
 		{
 			InitializeComponent();
+			//test
 		}
 	}
 }
