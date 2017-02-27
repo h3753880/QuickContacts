@@ -21,7 +21,7 @@ namespace QuickContacts
 			masterPageItems.Add(new MasterPageItem
 			{
 				Title = name,
-				IconSource = "http://graph.facebook.com/" + fbId + "/picture?type=large",
+				IconSource = "http://graph.facebook.com/" + fbId + "/picture?type=small",
 				TargetType = typeof(ProfilePage)
 			});
 
