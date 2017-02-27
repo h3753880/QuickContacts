@@ -75,13 +75,18 @@
 						Placeholder="Instagram"
 						Keyboard="Text" />
 
-				<StackLayout Orientation="Horizontal">
-					<Button x:Name="peOK" 
-							Text="OK"
-							Clicked="onPeOkClicked" />
+				<StackLayout Orientation="Horizontal"
+							HorizontalOptions="FillAndExpand">
+
 					<Button x:Name="peCancel" 
 							Text="Cancel" 
+							HorizontalOptions="FillAndExpand"
 							Clicked="onPeCancelClicked" />
+
+					<Button x:Name="peOK" 
+							Text="OK"
+							HorizontalOptions="FillAndExpand"
+							Clicked="onPeOkClicked" />
 				</StackLayout>
 						
 			</StackLayout>
