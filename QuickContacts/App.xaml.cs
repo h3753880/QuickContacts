@@ -4,6 +4,9 @@ namespace QuickContacts
 {
 	public partial class App : Application
 	{
+		public string Name { get; set; }
+		public string FbId { get; set; }
+
 		public App()
 		{
 			InitializeComponent();
