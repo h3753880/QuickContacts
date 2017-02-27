@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace QuickContacts
@@ -20,7 +21,7 @@ namespace QuickContacts
 			masterPageItems.Add(new MasterPageItem
 			{
 				Title = name,
-				IconSource = "profile.jpg",
+				IconSource = "http://graph.facebook.com/" + fbId + "/picture?type=large",
 				TargetType = typeof(ProfilePage)
 			});
 
