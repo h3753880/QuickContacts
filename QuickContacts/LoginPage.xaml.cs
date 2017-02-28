@@ -6,7 +6,7 @@ using System;
 
 namespace QuickContacts
 {
-	public partial class QuickContactsPage : ContentPage
+	public partial class LoginPage : ContentPage
 	{
 		const string FacebookAppId = "104491250069785";
 		const string extendedPermissions = "public_profile";
@@ -14,7 +14,7 @@ namespace QuickContacts
 		FacebookClient fb;
 		WebView loginPage;
 
-		public QuickContactsPage()
+		public LoginPage()
 		{
 			InitializeComponent();
 
