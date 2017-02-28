@@ -69,6 +69,8 @@ namespace QuickContacts
 					//store user info
 					Helpers.Settings.UserName = name;
 					Helpers.Settings.UserId = fbId;
+					App app = Application.Current as App;
+					app.FbId = fbId;
 
 				    await Navigation.PushModalAsync(nextPage);
 

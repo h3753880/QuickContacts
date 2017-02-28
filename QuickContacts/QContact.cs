@@ -5,8 +5,10 @@ namespace QuickContacts
 {
 	public class QContact
 	{
-		[PrimaryKey, AutoIncrement]
+		[PrimaryKey]
 		public string Id { get; set; }
+		//type 1 = user's own record, type 2 = user's friend's record
+		public string Type { get; set; } 
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Whose { get; set; }
