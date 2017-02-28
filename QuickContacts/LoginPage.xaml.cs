@@ -64,13 +64,15 @@ namespace QuickContacts
 					var result = (IDictionary<string, object>)tmp;
 					string fbId = result["id"].ToString();
 					string name = result["name"].ToString();
-					MainPage nextPage = new MainPage();
+					App app = Application.Current as App;
 
 					//store user info
 					Helpers.Settings.UserName = name;
 					Helpers.Settings.UserId = fbId;
-					App app = Application.Current as App;
 					app.FbId = fbId;
+					app.Name = name;
+
+					MainPage nextPage = new MainPage(name + "," + fbId);
 
 				    await Navigation.PushModalAsync(nextPage);
 

@@ -14,6 +14,13 @@ namespace QuickContacts
 			masterPage.ListView.ItemSelected += OnItemSelected;
 		}
 
+		public MainPage(string userData)
+		{
+			InitializeComponent();
+
+			masterPage.ListView.ItemSelected += OnItemSelected;
+		}
+
 		//click nav
 		async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
@@ -30,7 +37,15 @@ namespace QuickContacts
 				{
 					var answer = await DisplayAlert("Log Out", "Are you sure to log out?", "Yes", "Cancel");
 					// do log out things
-					Debug.WriteLine("Answer: " + answer);
+					if (answer)
+					{
+						App app = Application.Current as App;
+
+						Helpers.Settings.UserName = string.Empty;
+						Helpers.Settings.UserId = string.Empty;
+						app.FbId = string.Empty;
+						app.Name = string.Empty;
+					}
 				}
 
 				masterPage.ListView.SelectedItem = null;

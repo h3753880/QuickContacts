@@ -14,13 +14,14 @@ namespace QuickContacts
 		{
 			InitializeComponent();
 
-			if (!Properties.ContainsKey(qc_fbId))
+			if (string.IsNullOrEmpty(Helpers.Settings.UserId))
 			{
 				MainPage = new LoginPage();
 			}
 			else
 			{
-				FbId = (string)Properties[qc_fbId];
+				FbId = Helpers.Settings.UserId;
+				Name = Helpers.Settings.UserName;
 				MainPage = new MainPage();
 			}
 
