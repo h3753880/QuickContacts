@@ -25,7 +25,7 @@ namespace QuickContacts
 		//Get specific QContact  
 		public QContact GetQContact(string id)
 		{
-			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.Id.Equals(id));
+			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.Id == id);
 		}
 
 		//Delete specific QContact  

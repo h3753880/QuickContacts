@@ -12,10 +12,9 @@
 
 	<ScrollView>
 		<StackLayout>
-			<ListView x:Name="pListView">
-				
-			</ListView>
-
+			<ListView x:Name="pListView" 
+						VerticalOptions="FillAndExpand"/>
+			
 			<Button Text="Edit my profile"
 					Clicked="onEditClicked" />
 		</StackLayout>
