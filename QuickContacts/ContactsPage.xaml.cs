@@ -11,5 +11,15 @@ namespace QuickContacts
 		{
 			InitializeComponent();
 		}
+
+		public void onCCancelClicked(object sender, EventArgs args)
+		{
+			//Application.Current.MainPage = new MainPage();
+		}
+
+		public void onCExportClicked(object sender, EventArgs args)
+		{
+			//Application.Current.MainPage = new MainPage();
+		}
 	}
 }

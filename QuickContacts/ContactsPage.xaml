@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	         x:Class="QuickContacts.ContactsPage" Title="Contacts Page">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	        x:Class="QuickContacts.ContactsPage"
+			Title="Contacts"
+			BackgroundColor="White">
+
+	<ContentPage.Padding> 
+		<OnPlatform x:TypeArguments="Thickness" 
+					iOS="0, 20, 0, 0" /> 
+	</ContentPage.Padding> 
+	
 	<ContentPage.Content>
-		<Label Text="Contacts data goes here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+		<ScrollView>
+			<StackLayout>
+				<ListView x:Name="pListView">
+				
+				</ListView>
+
+				<StackLayout Orientation="Horizontal">
+					<Button x:Name="cCancel"
+							Text="Cancel"
+							HorizontalOptions="FillAndExpand"
+							Clicked="onCCancelClicked" />
+
+					<Button x:Name="cExport"
+							Text="Export"
+							HorizontalOptions="FillAndExpand"
+							Clicked="onCExportClicked" />
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
 	</ContentPage.Content>
+	
 </ContentPage>

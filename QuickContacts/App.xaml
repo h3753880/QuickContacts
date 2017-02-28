@@ -5,6 +5,11 @@
 			<Style TargetType="Button">
 				<Setter Property="BackgroundColor" Value="#FFA500" /> 
 				<Setter Property="BorderRadius" Value="5" />
+				<Setter Property="TextColor" Value="#333333" />
+			</Style>
+			<Style TargetType="NavigationPage">
+				<Setter Property="BarBackgroundColor" Value="#FFA500" /> 
+				<Setter Property="BarTextColor" Value="#333333" />
 			</Style>
 		</ResourceDictionary>
 	</Application.Resources>
