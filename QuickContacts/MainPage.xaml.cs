@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Facebook;
 using Xamarin.Forms;
 
 namespace QuickContacts
@@ -40,11 +41,18 @@ namespace QuickContacts
 					if (answer)
 					{
 						App app = Application.Current as App;
+						FacebookClient fb = new FacebookClient();
 
 						Helpers.Settings.UserName = string.Empty;
 						Helpers.Settings.UserId = string.Empty;
 						app.FbId = string.Empty;
 						app.Name = string.Empty;
+
+						var logoutUrl = fb.GetLogoutUrl(
+								new { access_token = app.AccessToken, 
+									  next = "https://www.facebook.com/connect/login_success.html" });
+
+						Application.Current.MainPage = new LoginPage(logoutUrl.AbsoluteUri);
 					}
 				}
 

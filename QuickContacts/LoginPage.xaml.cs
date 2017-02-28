@@ -13,11 +13,53 @@ namespace QuickContacts
 		string fbLoginUrl;
 		FacebookClient fb;
 		WebView loginPage;
+		int count = 0;
+
+		public LoginPage(string logout)
+		{
+			InitializeComponent();
+
+			fb = new FacebookClient();
+			fbLoginUrl = logout;
+
+			loginPage = new WebView
+			{
+				Source = fbLoginUrl,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand
+			};
+
+			loginPage.Navigated += fbLoggedin;
+			Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
+
+			Content = loginPage;
+		}
 
 		public LoginPage()
 		{
 			InitializeComponent();
 
+			CreateLoginView();
+		}
+
+		//redirect to login page after 2 sec
+		public bool OnTimerTick()
+		{
+			count++;
+
+			if (count == 2)
+			{
+				CreateLoginView();
+
+				return false;
+			}
+
+			return true;
+		}
+
+		//show the login webview
+		private void CreateLoginView()
+		{
 			fb = new FacebookClient();
 			fbLoginUrl = GetFacebookLoginUrl(FacebookAppId, extendedPermissions);
 
@@ -71,6 +113,7 @@ namespace QuickContacts
 					Helpers.Settings.UserId = fbId;
 					app.FbId = fbId;
 					app.Name = name;
+					app.AccessToken = fb.AccessToken;
 
 					MainPage nextPage = new MainPage(name + "," + fbId);
 
