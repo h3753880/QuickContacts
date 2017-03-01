@@ -40,5 +40,15 @@ namespace QuickContacts
 			_sqlconnection.Insert(qcontact);
 		}
 
+		//Update QContact to DB  
+		public void UpdateQContact(QContact qcontact)
+		{
+			_sqlconnection.Update(qcontact);
+		}
+
+		public bool ExistQContact(string id)
+		{
+			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.Id == id) != null;
+		}
 	}
 }

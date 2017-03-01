@@ -4,6 +4,13 @@
 			x:Class="QuickContacts.ProfileEditPage"
 			Title = "Me"
 			BackgroundColor="White" >
+
+	<ContentPage.Padding> 
+		<OnPlatform x:TypeArguments="Thickness" 
+					iOS="5, 20, 5, 0" 
+					Android="5, 0, 5, 0"/> 
+	</ContentPage.Padding>
+	
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>

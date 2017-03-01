@@ -104,6 +104,7 @@ namespace QuickContacts
 					fb.AccessToken = oauthResult.AccessToken;
 					var tmp = await fb.GetTaskAsync("me");
 					var result = (IDictionary<string, object>)tmp;
+
 					string fbId = result["id"].ToString();
 					string name = result["name"].ToString();
 					App app = Application.Current as App;
@@ -115,10 +116,19 @@ namespace QuickContacts
 					app.Name = name;
 					app.AccessToken = fb.AccessToken;
 
+					//save user data into database
+					QContactDB qcdb = new QContactDB();
+					QContact qc = new QContact();
+					if (!qcdb.ExistQContact(fbId))
+					{
+						qc.Id = fbId;
+						qc.Type = "1";
+						qc.Whose = fbId;
+						qcdb.AddQContact(qc);
+					}
+
 					MainPage nextPage = new MainPage(name + "," + fbId);
-
 				    await Navigation.PushModalAsync(nextPage);
-
 				}
 			}
 		}
