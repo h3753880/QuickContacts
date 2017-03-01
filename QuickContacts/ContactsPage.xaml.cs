@@ -7,19 +7,18 @@ namespace QuickContacts
 	public partial class ContactsPage : ContentPage
 	{
 		string fbId = Helpers.Settings.UserId;
+		QContactDB qcdb = new QContactDB();
 
 		public ContactsPage()
 		{
 			InitializeComponent();
 
-			ShowContacts();
+			var qcs = qcdb.GetQContacts(fbId);
+			ShowContacts((List<QContact>)qcs);
 		}
 
-		public void ShowContacts()
+		public void ShowContacts(List<QContact> qcs)
 		{
-			QContactDB qcdb = new QContactDB();
-			var qcs = qcdb.GetQContacts(fbId);
-
 			if (qcs != null)
 			{
 				List<string> clist = new List<string>();
@@ -31,6 +30,12 @@ namespace QuickContacts
 
 				pListView.ItemsSource = clist;
 			}
+		}
+
+		public void onSearchTextChanged(object sender, EventArgs args)
+		{
+			var keyqcs = qcdb.GetKeyQContacts(fbId, contactSearch.Text.Trim());
+			ShowContacts((List<QContact>)keyqcs);
 		}
 
 		public void onCCancelClicked(object sender, EventArgs args)

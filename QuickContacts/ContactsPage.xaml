@@ -7,13 +7,18 @@
 
 	<ContentPage.Padding> 
 		<OnPlatform x:TypeArguments="Thickness" 
-					iOS="5, 20, 5, 0" 
-					Android="5, 0, 5, 0" /> 
+					iOS="0, 20, 0, 0" /> 
 	</ContentPage.Padding> 
 	
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>
+				<StackLayout Orientation="Horizontal" BackgroundColor="#50FFA500">
+					<SearchBar x:Name="contactSearch"
+								Placeholder="Search" 
+								TextChanged="onSearchTextChanged" />
+				</StackLayout>
+						
 				<ListView x:Name="pListView">
 				
 				</ListView>

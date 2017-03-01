@@ -28,7 +28,7 @@ namespace QuickContacts
 		public IEnumerable<QContact> GetKeyQContacts(string id, string key)
 		{
 			return (from t in _sqlconnection.Table<QContact>()
-			        where t.myIdfriendId.StartsWith(id) && t.myIdfriendId.EndsWith(id) 
+			        where t.myIdfriendId.StartsWith(id) && !t.myIdfriendId.EndsWith(id) 
 			        && (t.FirstName.Contains(key) || t.LastName.Contains(key))
 					select t).ToList();
 		}
