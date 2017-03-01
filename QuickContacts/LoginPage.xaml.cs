@@ -119,11 +119,9 @@ namespace QuickContacts
 					//save user data into database
 					QContactDB qcdb = new QContactDB();
 					QContact qc = new QContact();
-					if (!qcdb.ExistQContact(fbId))
+					if (!qcdb.ExistQContact(fbId + "," + fbId))
 					{
-						qc.Id = fbId;
-						qc.Type = "1";
-						qc.Whose = fbId;
+						qc.myIdfriendId = fbId + "," + fbId;
 						qcdb.AddQContact(qc);
 					}
 

@@ -6,14 +6,10 @@ namespace QuickContacts
 	public class QContact
 	{
 		[PrimaryKey]
-		//the user's own facebook id or the user's friend's id
-		public string Id { get; set; }
-		//type 1 = user's own record, type 2 = user's friend's record
-		public string Type { get; set; } 
+		//myId,friendId
+		public string myIdfriendId { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
-		//whose -> the user's own facebook id;  
-		public string Whose { get; set; }
 		public string Company { get; set; }
 		public string Mobile { get; set; }
 		public string HomePhone { get; set; }

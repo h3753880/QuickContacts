@@ -17,15 +17,15 @@ namespace QuickContacts
 		}
 
 		//Get all QContact items  
-		public IEnumerable<QContact> GetQContacts()
+		public IEnumerable<QContact> GetQContacts(string id)
 		{
-			return (from t in _sqlconnection.Table<QContact>() select t).ToList();
+			return (from t in _sqlconnection.Table<QContact>() where t.myIdfriendId == id select t).ToList();
 		}
 
 		//Get specific QContact  
 		public QContact GetQContact(string id)
 		{
-			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.Id == id);
+			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.myIdfriendId == id);
 		}
 
 		//Delete specific QContact  
@@ -48,7 +48,7 @@ namespace QuickContacts
 
 		public bool ExistQContact(string id)
 		{
-			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.Id == id) != null;
+			return _sqlconnection.Table<QContact>().FirstOrDefault(t => t.myIdfriendId == id) != null;
 		}
 	}
 }

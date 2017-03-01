@@ -16,16 +16,17 @@ namespace QuickContacts
 			List<string> source = new List<string>();
 
 			string fbId = Helpers.Settings.UserId;
-			QContact qc = qcdb.GetQContact(fbId);
+			string keyId = fbId + "," + fbId;
+			QContact qc = qcdb.GetQContact(keyId);
 			if (qc == null) qc = new QContact();
 			var type = qc.GetType();
 			var properties = type.GetRuntimeProperties();
 
 			foreach (PropertyInfo prop in properties)
 			{
-				if (prop.Name.Equals("Id") ||prop.Name.Equals("Type") || prop.Name.Equals("Whose")) continue;
+				if (prop.Name.Equals("myIdfriendId")) continue;
 
-				source.Add(string.Format("{0} | {1}",prop.Name ,prop.GetValue(qc, null)));
+				source.Add(string.Format("{0} | {1}", prop.Name, prop.GetValue(qc, null)));
 			}
 			pListView.ItemsSource = source;
 		}

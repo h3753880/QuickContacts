@@ -5,6 +5,7 @@
 	BackgroundColor="#FFA500" >
 	<ContentPage.Content>
 		<Label Text="No Internet Connection" 
-				VerticalOptions="CenterAndExpand" />
+				VerticalOptions="CenterAndExpand" 
+				HorizontalOptions="CenterAndExpand" />
 	</ContentPage.Content>
 </ContentPage>

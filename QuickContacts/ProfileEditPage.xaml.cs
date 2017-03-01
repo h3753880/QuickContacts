@@ -13,7 +13,7 @@ namespace QuickContacts
 			InitializeComponent();
 
 			QContactDB qcdb = new QContactDB();
-			QContact qc = qcdb.GetQContact(fbId);
+			QContact qc = qcdb.GetQContact(fbId + "," + fbId);
 
 			if (qc != null)
 			{
@@ -47,11 +47,9 @@ namespace QuickContacts
 			QContact qc = new QContact();
 			QContactDB qcdb = new QContactDB();
 
-			qc.Id = fbId;
-			qc.Type = "1";
+			qc.myIdfriendId = fbId + "," + fbId;
 			qc.FirstName = peFirstName.Text;
 			qc.LastName = peLastName.Text;
-			qc.Whose = fbId;
 			qc.Company = peCompany.Text;
 			qc.Mobile = peMobile.Text;
 			qc.HomePhone = peHomePhone.Text;
