@@ -19,7 +19,18 @@ namespace QuickContacts
 		//Get all QContact items  
 		public IEnumerable<QContact> GetQContacts(string id)
 		{
-			return (from t in _sqlconnection.Table<QContact>() where t.myIdfriendId == id select t).ToList();
+			return (from t in _sqlconnection.Table<QContact>()
+					where t.myIdfriendId.StartsWith(id) && !t.myIdfriendId.EndsWith(id) 
+			        select t).ToList();
+		}
+
+		//Get all QContact items contain the keyword 
+		public IEnumerable<QContact> GetKeyQContacts(string id, string key)
+		{
+			return (from t in _sqlconnection.Table<QContact>()
+			        where t.myIdfriendId.StartsWith(id) && t.myIdfriendId.EndsWith(id) 
+			        && (t.FirstName.Contains(key) || t.LastName.Contains(key))
+					select t).ToList();
 		}
 
 		//Get specific QContact  

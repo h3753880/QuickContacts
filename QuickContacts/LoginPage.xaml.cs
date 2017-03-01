@@ -123,6 +123,9 @@ namespace QuickContacts
 					{
 						qc.myIdfriendId = fbId + "," + fbId;
 						qcdb.AddQContact(qc);
+
+						//for test
+						testAddContacts(fbId);
 					}
 
 					MainPage nextPage = new MainPage(name + "," + fbId);
@@ -130,5 +133,26 @@ namespace QuickContacts
 				}
 			}
 		}
+
+		//for test
+		public void testAddContacts(string fbId)
+		{
+			List<QContact> qcs = new List<QContact>()
+			{
+				new QContact {myIdfriendId=fbId + ",0", FirstName="Tommy", LastName="Chen", Mobile = "18734780"},
+				new QContact {myIdfriendId=fbId + ",1", FirstName="Steven", LastName="Nash", Mobile = "21591359"},
+				new QContact {myIdfriendId=fbId + ",2", FirstName="Jim", LastName="Duncan", Mobile = "2975917957"},
+				new QContact {myIdfriendId=fbId + ",3", FirstName="Roger", LastName="Clemens", Mobile = "159174810"},
+				new QContact {myIdfriendId=fbId + ",4", FirstName="Honus", LastName="Wagner", Mobile = "82957175"},
+				new QContact {myIdfriendId=fbId + ",5", FirstName="Stan", LastName="Musial", Mobile = "89517957"},
+			};
+
+			QContactDB qcdb = new QContactDB();
+			for (int i = 0; i < qcs.Count; i++)
+			{
+				qcdb.AddQContact(qcs[i]);
+			}
+		}
+
 	}
 }
