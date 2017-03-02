@@ -13,6 +13,7 @@
 			</StackLayout>
 			
 			<ListView x:Name="pListView"
+						RowHeight="40"
 						ItemSelected="pItemSelected" >
 				<ListView.ItemTemplate>
 			    	<DataTemplate>

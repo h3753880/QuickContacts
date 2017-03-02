@@ -14,6 +14,7 @@
 				</StackLayout>
 				
 				<ListView x:Name="cdListView"
+							RowHeight="40"
 							ItemSelected="cdItemSelected" >
 					<ListView.ItemTemplate>
 				    	<DataTemplate>

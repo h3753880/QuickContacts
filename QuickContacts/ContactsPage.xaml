@@ -10,10 +10,17 @@
 			<StackLayout>
 				<StackLayout Orientation="Horizontal" BackgroundColor="#50FFA500">
 					<SearchBar x:Name="contactSearch"
-								HorizontalOptions="FillAndExpand"
+								HorizontalOptions="Fill"
 								BackgroundColor="#50FFA500"
 								Placeholder="Search" 
 								TextChanged="onSearchTextChanged" />
+
+					<Button x:Name="cMultiSelect"
+							Text="Select"
+							TextColor="#333333"
+							BackgroundColor="Transparent"
+							HorizontalOptions="Fill"
+							Clicked="onCMultiSelect" />
 				</StackLayout>
 
 				<StackLayout Padding="5, 0, 0, 0" >

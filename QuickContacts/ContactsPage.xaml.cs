@@ -8,6 +8,7 @@ namespace QuickContacts
 	{
 		string fbId = Helpers.Settings.UserId;
 		QContactDB qcdb = new QContactDB();
+		List<cItem> clist = new List<cItem>();
 
 		public ContactsPage()
 		{
@@ -21,8 +22,6 @@ namespace QuickContacts
 		{
 			if (qcs != null)
 			{
-				List<cItem> clist = new List<cItem>();
-
 				foreach (QContact qc in qcs)
 				{
 					cItem c = new cItem();
@@ -63,6 +62,11 @@ namespace QuickContacts
 		{
 			var keyqcs = qcdb.GetKeyQContacts(fbId, contactSearch.Text.Trim());
 			ShowContacts((List<QContact>)keyqcs);
+		}
+
+		public void onCMultiSelect(object sender, EventArgs args)
+		{
+			
 		}
 
 		public void onCCancelClicked(object sender, EventArgs args)
