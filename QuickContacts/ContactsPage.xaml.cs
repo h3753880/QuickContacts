@@ -78,7 +78,6 @@ namespace QuickContacts
 					c.cChecked = false;
 				}
 			}
-			cListView.ItemsSource = clist;
 		}
 
 		public void onCCancelClicked(object sender, EventArgs args)
@@ -89,7 +88,6 @@ namespace QuickContacts
 				c.cChecked = false;
 			}
 			cMultiSelect.IsToggled = false;
-			cListView.ItemsSource = clist;
 		}
 
 		public void onCExportClicked(object sender, EventArgs args)
@@ -108,7 +106,6 @@ namespace QuickContacts
 				c.cChecked = false;
 			}
 			cMultiSelect.IsToggled = false;
-			cListView.ItemsSource = clist;
 		}
 	}
 }
