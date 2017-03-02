@@ -10,17 +10,14 @@
 			<StackLayout>
 				<StackLayout Orientation="Horizontal" BackgroundColor="#50FFA500">
 					<SearchBar x:Name="contactSearch"
-								HorizontalOptions="Fill"
+								HorizontalOptions="FillAndExpand"
 								BackgroundColor="#50FFA500"
 								Placeholder="Search" 
 								TextChanged="onSearchTextChanged" />
 
-					<Button x:Name="cMultiSelect"
-							Text="Select"
-							TextColor="#333333"
-							BackgroundColor="Transparent"
-							HorizontalOptions="Fill"
-							Clicked="onCMultiSelect" />
+					<Switch x:Name="cMultiSelect"
+							HorizontalOptions="FillAndExpand"
+							Toggled="onCMultiSelect" />
 				</StackLayout>
 
 				<StackLayout Padding="5, 0, 0, 0" >
@@ -48,7 +45,11 @@
 													Text="{Binding cName}"
 													VerticalOptions="CenterAndExpand"/>
 												
-											<Label Grid.Column="2" 
+											<Switch Grid.Column="2" 
+													HorizontalOptions="FillAndExpand"
+													BindingContext="{x:Reference cMultiSelect}"
+													IsVisible="{Binding Path=IsToggled}"
+													IsToggled="{Binding cChecked}"
 													VerticalOptions="CenterAndExpand"/>
 										</Grid>
 									</ViewCell.View>
@@ -62,11 +63,15 @@
 					<Button x:Name="cCancel"
 							Text="Cancel"
 							HorizontalOptions="FillAndExpand"
+							BindingContext="{x:Reference cMultiSelect}"
+							IsVisible="{Binding Path=IsToggled}"
 							Clicked="onCCancelClicked" />
 
 					<Button x:Name="cExport"
 							Text="Export"
 							HorizontalOptions="FillAndExpand"
+							BindingContext="{x:Reference cMultiSelect}"
+							IsVisible="{Binding Path=IsToggled}"
 							Clicked="onCExportClicked" />
 				</StackLayout>
 			</StackLayout>
