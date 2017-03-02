@@ -29,6 +29,7 @@ namespace QuickContacts
 					c.cSource = "http://graph.facebook.com/" + fbId + "/picture?type=small";
 					c.cName = qc.FirstName + " " + qc.LastName;
 					c.cId = qc.myIdfriendId;
+					c.cChecked = false;
 					clist.Add(c);
 				}
 
@@ -41,15 +42,19 @@ namespace QuickContacts
 			public string cSource { set; get; }
 			public string cName { set; get; }
 			public string cId { set; get; }
-		}
+			public bool cChecked { set; get; }
+ 		}
 
 		public async void cItemSelected(object sender, EventArgs args)
 		{
 			ListView lv = (ListView)sender;
 			cItem c = lv.SelectedItem as cItem;
 
-			await Navigation.PushAsync(new ContactDetailPage(c.cId), false);
-			//Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
+			if (!cMultiSelect.IsToggled)
+			{
+				await Navigation.PushAsync(new ContactDetailPage(c.cId), false);
+				//Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
+			}
 		}
 
 		/*bool OnTimerTick()
@@ -64,19 +69,46 @@ namespace QuickContacts
 			ShowContacts((List<QContact>)keyqcs);
 		}
 
-		public void onCMultiSelect(object sender, EventArgs args)
+		public void onCMultiSelect(object sender, ToggledEventArgs args)
 		{
-			
+			if (!args.Value)
+			{
+				foreach (cItem c in clist)
+				{
+					c.cChecked = false;
+				}
+			}
+			cListView.ItemsSource = clist;
 		}
 
 		public void onCCancelClicked(object sender, EventArgs args)
 		{
-			//Application.Current.MainPage = new MainPage();
+			//unselect all the contacts
+			foreach (cItem c in clist)
+			{
+				c.cChecked = false;
+			}
+			cMultiSelect.IsToggled = false;
+			cListView.ItemsSource = clist;
 		}
 
 		public void onCExportClicked(object sender, EventArgs args)
 		{
-			//Application.Current.MainPage = new MainPage();
+			DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+
+			//get the selected contact list
+			List<cItem> selectedList = new List<cItem>();
+			foreach (cItem c in clist)
+			{
+				if (c.cChecked == true) selectedList.Add(c);
+			}
+
+			foreach (cItem c in clist)
+			{
+				c.cChecked = false;
+			}
+			cMultiSelect.IsToggled = false;
+			cListView.ItemsSource = clist;
 		}
 	}
 }
