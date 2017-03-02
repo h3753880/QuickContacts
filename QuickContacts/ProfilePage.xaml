@@ -5,15 +5,39 @@
 		Title="Me"
 		BackgroundColor="White" >
 
-	<ContentPage.Padding> 
-		<OnPlatform x:TypeArguments="Thickness" 
-					iOS="0, 20, 0, 0" /> 
-	</ContentPage.Padding> 
-
 	<ScrollView>
-		<StackLayout>
-			<ListView x:Name="pListView" 
-						VerticalOptions="FillAndExpand"/>
+		<StackLayout Padding="5, 5, 0, 0">
+			
+			<StackLayout Orientation="Horizontal" Padding="5, 5, 5, 0" >				
+				<Image x:Name="pImage" WidthRequest="100" HeightRequest="100" />
+			</StackLayout>
+			
+			<ListView x:Name="pListView"
+						ItemSelected="pItemSelected" >
+				<ListView.ItemTemplate>
+			    	<DataTemplate>
+						<ViewCell>
+							<ViewCell.View>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+									<Label Grid.Column="0" 
+											Text="{Binding pName}" 
+											WidthRequest="120"
+											VerticalOptions="CenterAndExpand"/>
+									
+									<Label Grid.Column="1" 
+											Text="{Binding pValue}"
+											VerticalOptions="CenterAndExpand"/>
+								</Grid>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
 			
 			<Button Text="Edit my profile"
 					Clicked="onEditClicked" />

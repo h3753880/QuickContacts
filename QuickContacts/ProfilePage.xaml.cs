@@ -13,7 +13,7 @@ namespace QuickContacts
 			InitializeComponent();
 
 			QContactDB qcdb = new QContactDB();
-			List<string> source = new List<string>();
+			var pItems = new List<pItem>();
 
 			string fbId = Helpers.Settings.UserId;
 			string keyId = fbId + "," + fbId;
@@ -24,16 +24,33 @@ namespace QuickContacts
 
 			foreach (PropertyInfo prop in properties)
 			{
-				if (prop.Name.Equals("myIdfriendId")) continue;
 
-				source.Add(string.Format("{0} | {1}", prop.Name, prop.GetValue(qc, null)));
+				if (!prop.Name.Equals("myIdfriendId"))
+				{
+					pItem p = new pItem();
+					p.pName = prop.Name;
+					p.pValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+					pItems.Add(p);
+				}
 			}
-			pListView.ItemsSource = source;
+			pListView.ItemsSource = pItems;
+			pImage.Source = ImageSource.FromUri(new Uri("http://graph.facebook.com/" + fbId + "/picture?type=small"));
 		}
 
-		public void onEditClicked(object sender, EventArgs args)
+		public class pItem
 		{
-			Application.Current.MainPage = new ProfileEditPage();
+			public string pName { set; get; }
+			public string pValue { set; get; }
+		}
+
+		public async void onEditClicked(object sender, EventArgs args)
+		{
+			await Navigation.PushAsync(new ProfileEditPage());
+		}
+
+		public void pItemSelected(object sender, EventArgs args)
+		{
+			((ListView)sender).SelectedItem = null;
 		}
 	}
 }

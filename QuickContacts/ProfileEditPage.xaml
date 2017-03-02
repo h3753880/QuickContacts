@@ -2,100 +2,96 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			x:Class="QuickContacts.ProfileEditPage"
-			Title = "Me"
-			BackgroundColor="White" >
+			BackgroundColor="White" 
+			Padding="5, 0, 0, 0" >
 
-	<ContentPage.Padding> 
-		<OnPlatform x:TypeArguments="Thickness" 
-					iOS="5, 20, 0, 0" 
-					Android="5, 0, 0, 0"/> 
-	</ContentPage.Padding>
-	
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>
-				<Entry x:Name="peFirstName"
-						Placeholder="FirstName"
-						Keyboard="Text" />
-				
-				<Entry x:Name="peLastName"
-						Placeholder="LastName"
-						Keyboard="Text" />
+				<StackLayout Padding= "5, 0, 10, 0">
+					<Entry x:Name="peFirstName"
+							Placeholder="First Name"
+							Keyboard="Text" />
+					
+					<Entry x:Name="peLastName"
+							Placeholder="Last Name"
+							Keyboard="Text" />
 
-				<Entry x:Name="peCompany"
-						Placeholder="Company"
-						Keyboard="Text" />
+					<Entry x:Name="peCompany"
+							Placeholder="Company"
+							Keyboard="Text" />
 
-				<Entry x:Name="peMobile"
-						Placeholder="Mobile"
-						Keyboard="Text" />
+					<Entry x:Name="peMobile"
+							Placeholder="Mobile"
+							Keyboard="Text" />
 
-				<Entry x:Name="peHomePhone"
-						Placeholder="HomePhone"
-						Keyboard="Text" />
+					<Entry x:Name="peHomePhone"
+							Placeholder="Home Phone"
+							Keyboard="Text" />
 
-				<Entry x:Name="peWorkPhone"
-						Placeholder="WorkPhone"
-						Keyboard="Text" />
+					<Entry x:Name="peWorkPhone"
+							Placeholder="Work Phone"
+							Keyboard="Text" />
 
-				<Entry x:Name="peHomeFax"
-						Placeholder="HomeFax"
-						Keyboard="Text" />
+					<Entry x:Name="peHomeFax"
+							Placeholder="Home Fax"
+							Keyboard="Text" />
 
-				<Entry x:Name="peWorkFax"
-						Placeholder="WorkFax"
-						Keyboard="Text" />
+					<Entry x:Name="peWorkFax"
+							Placeholder="Work Fax"
+							Keyboard="Text" />
 
-				<Entry x:Name="peAddr"
-						Placeholder="Addr"
-						Keyboard="Text" />
+					<Entry x:Name="peAddr"
+							Placeholder="Address"
+							Keyboard="Text" />
 
-				<Entry x:Name="peEmail"
-						Placeholder="Email"
-						Keyboard="Text" />
+					<Entry x:Name="peEmail"
+							Placeholder="Email"
+							Keyboard="Text" />
 
-				<Entry x:Name="peBirthday"
-						Placeholder="Birthday"
-						Keyboard="Text" />
+					<Entry x:Name="peBirthday"
+							Placeholder="Birthday"
+							Keyboard="Text" />
 
-				<Entry x:Name="peURL"
-						Placeholder="URL"
-						Keyboard="Text" />
+					<Entry x:Name="peURL"
+							Placeholder="URL"
+							Keyboard="Text" />
 
-				<Entry x:Name="peSkype"
-						Placeholder="Skype"
-						Keyboard="Text" />
+					<Entry x:Name="peSkype"
+							Placeholder="Skype"
+							Keyboard="Text" />
 
-				<Entry x:Name="peFacebook"
-						Placeholder="Facebook"
-						Keyboard="Text" />
+					<Entry x:Name="peFacebook"
+							Placeholder="Facebook"
+							Keyboard="Text" />
 
-				<Entry x:Name="peLinkedIn"
-						Placeholder="LinkedIn"
-						Keyboard="Text" />
+					<Entry x:Name="peLinkedIn"
+							Placeholder="LinkedIn"
+							Keyboard="Text" />
 
-				<Entry x:Name="peTwitter"
-						Placeholder="Twitter"
-						Keyboard="Text" />
+					<Entry x:Name="peTwitter"
+							Placeholder="Twitter"
+							Keyboard="Text" />
 
-				<Entry x:Name="peInstagram"
-						Placeholder="Instagram"
-						Keyboard="Text" />
+					<Entry x:Name="peInstagram"
+							Placeholder="Instagram"
+							Keyboard="Text" />
 
-				<StackLayout Orientation="Horizontal"
-							HorizontalOptions="FillAndExpand">
+					<StackLayout Orientation="Horizontal"
+								HorizontalOptions="FillAndExpand">
 
-					<Button x:Name="peCancel" 
-							Text="Cancel" 
-							HorizontalOptions="FillAndExpand"
-							Clicked="onPeCancelClicked" />
+						<Button x:Name="peCancel" 
+								Text="Cancel" 
+								HorizontalOptions="FillAndExpand"
+								Clicked="onPeCancelClicked" />
 
-					<Button x:Name="peOK" 
-							Text="OK"
-							HorizontalOptions="FillAndExpand"
-							Clicked="onPeOkClicked" />
+						<Button x:Name="peOK" 
+								Text="OK"
+								HorizontalOptions="FillAndExpand"
+								Clicked="onPeOkClicked" />
+					</StackLayout>
+							
 				</StackLayout>
-						
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

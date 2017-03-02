@@ -21,16 +21,43 @@ namespace QuickContacts
 		{
 			if (qcs != null)
 			{
-				List<string> clist = new List<string>();
+				List<cItem> clist = new List<cItem>();
 
 				foreach (QContact qc in qcs)
 				{
-					clist.Add(qc.FirstName + " " + qc.LastName);
+					cItem c = new cItem();
+					//for test
+					c.cSource = "http://graph.facebook.com/" + fbId + "/picture?type=small";
+					c.cName = qc.FirstName + " " + qc.LastName;
+					c.cId = qc.myIdfriendId;
+					clist.Add(c);
 				}
 
-				pListView.ItemsSource = clist;
+				cListView.ItemsSource = clist;
 			}
 		}
+
+		public class cItem
+		{
+			public string cSource { set; get; }
+			public string cName { set; get; }
+			public string cId { set; get; }
+		}
+
+		public async void cItemSelected(object sender, EventArgs args)
+		{
+			ListView lv = (ListView)sender;
+			cItem c = lv.SelectedItem as cItem;
+
+			await Navigation.PushAsync(new ContactDetailPage(c.cId), false);
+			//Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
+		}
+
+		/*bool OnTimerTick()
+		{
+			cListView.SelectedItem = null;
+			return false;
+		}*/
 
 		public void onSearchTextChanged(object sender, EventArgs args)
 		{

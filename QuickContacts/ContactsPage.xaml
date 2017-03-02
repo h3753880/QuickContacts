@@ -4,25 +4,53 @@
 	        x:Class="QuickContacts.ContactsPage"
 			Title="Contacts"
 			BackgroundColor="White">
-
-	<ContentPage.Padding> 
-		<OnPlatform x:TypeArguments="Thickness" 
-					iOS="0, 20, 0, 0" /> 
-	</ContentPage.Padding> 
 	
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>
 				<StackLayout Orientation="Horizontal" BackgroundColor="#50FFA500">
 					<SearchBar x:Name="contactSearch"
+								HorizontalOptions="FillAndExpand"
+								BackgroundColor="#50FFA500"
 								Placeholder="Search" 
 								TextChanged="onSearchTextChanged" />
 				</StackLayout>
-						
-				<ListView x:Name="pListView">
-				
-				</ListView>
 
+				<StackLayout Padding="5, 0, 0, 0" >
+					<ListView x:Name="cListView"
+							RowHeight="70"
+							ItemSelected="cItemSelected" >
+						<ListView.ItemTemplate>
+					    	<DataTemplate>
+								<ViewCell>
+									<ViewCell.View>
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="Auto"/>
+												<ColumnDefinition Width="Auto"/>
+												<ColumnDefinition Width="Auto"/>
+											</Grid.ColumnDefinitions>
+
+											<Image Grid.Column="0" 
+													Source="{Binding cSource}" 
+													WidthRequest="60"
+													HeightRequest="60"
+													VerticalOptions="CenterAndExpand"/>
+											
+											<Label Grid.Column="1" 
+													Text="{Binding cName}"
+													VerticalOptions="CenterAndExpand"/>
+												
+											<Label Grid.Column="2" 
+													VerticalOptions="CenterAndExpand"/>
+										</Grid>
+									</ViewCell.View>
+								</ViewCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+				
 				<StackLayout Orientation="Horizontal">
 					<Button x:Name="cCancel"
 							Text="Cancel"

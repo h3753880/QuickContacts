@@ -67,14 +67,23 @@ namespace QuickContacts
 			qc.Instagram = peInstagram.Text;
 			qc.LastModified = "";
 
-			qcdb.UpdateQContact(qc);
+			if (qcdb.ExistQContact(qc.myIdfriendId))
+			{
+				qcdb.UpdateQContact(qc);
+			}
+			else
+			{
+				qcdb.AddQContact(qc);
+			}
+				
+			
 
 			Application.Current.MainPage = new MainPage();
 		}
 
-		public void onPeCancelClicked(object sender, EventArgs args)
+		public async void onPeCancelClicked(object sender, EventArgs args)
 		{
-			Application.Current.MainPage = new MainPage();
-		} 
+			await Navigation.PopAsync();
+		}
 	}
 }

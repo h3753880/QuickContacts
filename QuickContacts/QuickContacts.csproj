@@ -54,6 +54,9 @@
     <EmbeddedResource Include="NoInternetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContactDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -91,6 +94,9 @@
     </Compile>
     <Compile Include="NoInternetPage.xaml.cs">
       <DependentUpon>NoInternetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactDetailPage.xaml.cs">
+      <DependentUpon>ContactDetailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
