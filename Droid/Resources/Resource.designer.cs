@@ -29,13 +29,13 @@ namespace QuickContacts.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::QuickContacts.Droid.Resource.Attribute.actionBarSize;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::QuickContacts.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::QuickContacts.Droid.Resource.String.Hello;
-			global::FacebookMonoDroid.Resource.String.library_name = global::QuickContacts.Droid.Resource.String.library_name;
 			global::ZXing.Mobile.Resource.Id.contentFrame = global::QuickContacts.Droid.Resource.Id.contentFrame;
 			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::QuickContacts.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::QuickContacts.Droid.Resource.Layout.zxingscannerfragmentlayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::QuickContacts.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::QuickContacts.Droid.Resource.Layout.zxingscannerfragmentlayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::QuickContacts.Droid.Resource.String.library_name;
+			global::FacebookMonoDroid.Resource.String.library_name = global::QuickContacts.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation

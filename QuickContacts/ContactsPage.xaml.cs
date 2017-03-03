@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace QuickContacts
@@ -8,7 +9,7 @@ namespace QuickContacts
 	{
 		string fbId = Helpers.Settings.UserId;
 		QContactDB qcdb = new QContactDB();
-		List<cItem> clist = new List<cItem>();
+		ObservableCollection<cItem> clist = new ObservableCollection<cItem>();
 
 		public ContactsPage()
 		{
@@ -16,12 +17,14 @@ namespace QuickContacts
 
 			var qcs = qcdb.GetQContacts(fbId);
 			ShowContacts((List<QContact>)qcs);
+			cListView.ItemsSource = clist;
 		}
 
 		public void ShowContacts(List<QContact> qcs)
 		{
 			if (qcs != null)
 			{
+				clist.Clear();
 				foreach (QContact qc in qcs)
 				{
 					cItem c = new cItem();
@@ -32,8 +35,6 @@ namespace QuickContacts
 					c.cChecked = false;
 					clist.Add(c);
 				}
-
-				cListView.ItemsSource = clist;
 			}
 		}
 
@@ -55,20 +56,17 @@ namespace QuickContacts
 			if (!cMultiSelect.IsToggled)
 			{
 				await Navigation.PushAsync(new ContactDetailPage(c.cId), false);
-				//Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
 			}
 			else
 			{
+				//bug to be fixed, tag the item, the switch should be toggled
+				//int index = clist.IndexOf(c);
 				c.cChecked = true;
+				//clist[index] = c;
+
 				((ListView)sender).SelectedItem = null;
 			}
 		}
-
-		/*bool OnTimerTick()
-		{
-			cListView.SelectedItem = null;
-			return false;
-		}*/
 
 		public void onSearchTextChanged(object sender, EventArgs args)
 		{
@@ -80,20 +78,17 @@ namespace QuickContacts
 		{
 			if (!args.Value)
 			{
-				for (int i = 0; i < clist.Count; i++)
-				{
-					clist[i].cChecked = false;
-				}
+				var qcs = qcdb.GetQContacts(fbId);
+				ShowContacts((List<QContact>)qcs);
 			}
 		}
 
 		public void onCCancelClicked(object sender, EventArgs args)
 		{
 			//unselect all the contacts
-			for (int i = 0; i < clist.Count; i++)
-			{
-				clist[i].cChecked = false;
-			}
+			var qcs = qcdb.GetQContacts(fbId);
+			ShowContacts((List<QContact>)qcs);
+
 			cMultiSelect.IsToggled = false;
 		}
 
@@ -108,12 +103,18 @@ namespace QuickContacts
 				if (c.cChecked == true) selectedList.Add(c);
 			}
 
-			for (int i = 0; i < clist.Count; i++)
-			{
-				clist[i].cChecked = false;
-			}
+			var qcs = qcdb.GetQContacts(fbId);
+			ShowContacts((List<QContact>)qcs);
 
 			cMultiSelect.IsToggled = false;
+		}
+
+		protected override void OnAppearing() 
+		{ 	
+			base.OnAppearing(); 
+
+			var qcs = qcdb.GetQContacts(fbId);
+			ShowContacts((List<QContact>)qcs);
 		}
 	}
 }

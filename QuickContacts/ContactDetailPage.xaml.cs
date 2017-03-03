@@ -29,7 +29,12 @@ namespace QuickContacts
 
 				if (!prop.Name.Equals("myIdfriendId"))
 				{
-					if (prop.Name.Equals("FirstName") || prop.Name.Equals("LastName"))
+					if (prop.Name.Equals("FirstName"))
+					{
+						cdName.Text += prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+						cdName.Text += " ";
+					}
+					else if (prop.Name.Equals("LastName"))
 					{
 						cdName.Text += prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
 					}

@@ -40,7 +40,7 @@
 				</ListView.ItemTemplate>
 			</ListView>
 			
-			<Button Text="Edit my profile"
+			<Button Text="Edit My Profile"
 					Clicked="onEditClicked" />
 		</StackLayout>
 	</ScrollView>

@@ -16,7 +16,8 @@
 								TextChanged="onSearchTextChanged" />
 
 					<Switch x:Name="cMultiSelect"
-							HorizontalOptions="FillAndExpand"
+							HorizontalOptions="End"
+							VerticalOptions="CenterAndExpand"
 							Toggled="onCMultiSelect" />
 				</StackLayout>
 
@@ -30,23 +31,25 @@
 									<ViewCell.View>
 										<Grid>
 											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="Auto"/>
-												<ColumnDefinition Width="Auto"/>
-												<ColumnDefinition Width="Auto"/>
+												<ColumnDefinition Width="*"/>
+												<ColumnDefinition Width="*"/>
+												<ColumnDefinition Width="*"/>
 											</Grid.ColumnDefinitions>
 
 											<Image Grid.Column="0" 
 													Source="{Binding cSource}" 
 													WidthRequest="60"
 													HeightRequest="60"
+													HorizontalOptions="FillAndExpand"
 													VerticalOptions="CenterAndExpand"/>
 											
 											<Label Grid.Column="1" 
 													Text="{Binding cName}"
+													HorizontalOptions="Fill"
 													VerticalOptions="CenterAndExpand"/>
 												
 											<Switch Grid.Column="2" 
-													HorizontalOptions="FillAndExpand"
+													HorizontalOptions="EndAndExpand"
 													BindingContext="{x:Reference cMultiSelect}"
 													IsVisible="{Binding Path=IsToggled}"
 													IsToggled="{Binding cChecked}"
