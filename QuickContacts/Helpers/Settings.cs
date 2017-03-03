@@ -20,11 +20,8 @@ namespace QuickContacts.Helpers
     }
 
     #region Setting Constants
-
     private const string SettingsKey = "settings_key";
     private static readonly string SettingsDefault = string.Empty;
-
-	
     #endregion
 
 
@@ -56,5 +53,22 @@ namespace QuickContacts.Helpers
 			AppSettings.AddOrUpdateValue<string>(SettingsKey2, value);
 		}
 	}
+
+		#region Setting Constants
+		private const string SettingsKey3 = "settings_key3";
+		private static readonly string SettingsDefault3 = string.Empty;
+		#endregion
+
+		public static string QRData
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault<string>(SettingsKey3, SettingsDefault3);
+			}
+			set
+			{
+				AppSettings.AddOrUpdateValue<string>(SettingsKey3, value);
+			}
+		}
   }
 }

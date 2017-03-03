@@ -30,6 +30,12 @@ namespace QuickContacts.Droid
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::QuickContacts.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::QuickContacts.Droid.Resource.String.Hello;
 			global::FacebookMonoDroid.Resource.String.library_name = global::QuickContacts.Droid.Resource.String.library_name;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::QuickContacts.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::QuickContacts.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::QuickContacts.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::QuickContacts.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::QuickContacts.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::QuickContacts.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -2324,6 +2330,9 @@ namespace QuickContacts.Droid
 			// aapt resource value: 0x7f0b0036
 			public const int collapseActionView = 2131427382;
 			
+			// aapt resource value: 0x7f0b009a
+			public const int contentFrame = 2131427482;
+			
 			// aapt resource value: 0x7f0b004a
 			public const int contentPanel = 2131427402;
 			
@@ -2941,6 +2950,12 @@ namespace QuickContacts.Droid
 			
 			// aapt resource value: 0x7f030038
 			public const int Toolbar = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int zxingscanneractivitylayout = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int zxingscannerfragmentlayout = 2130903098;
 			
 			static Layout()
 			{
