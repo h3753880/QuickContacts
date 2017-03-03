@@ -43,17 +43,24 @@ namespace QuickContacts
 			public string cName { set; get; }
 			public string cId { set; get; }
 			public bool cChecked { set; get; }
- 		}
+		}
 
 		public async void cItemSelected(object sender, EventArgs args)
 		{
 			ListView lv = (ListView)sender;
 			cItem c = lv.SelectedItem as cItem;
 
+			if (c == null) return;
+
 			if (!cMultiSelect.IsToggled)
 			{
 				await Navigation.PushAsync(new ContactDetailPage(c.cId), false);
 				//Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
+			}
+			else
+			{
+				c.cChecked = true;
+				((ListView)sender).SelectedItem = null;
 			}
 		}
 
@@ -73,9 +80,9 @@ namespace QuickContacts
 		{
 			if (!args.Value)
 			{
-				foreach (cItem c in clist)
+				for (int i = 0; i < clist.Count; i++)
 				{
-					c.cChecked = false;
+					clist[i].cChecked = false;
 				}
 			}
 		}
@@ -83,9 +90,9 @@ namespace QuickContacts
 		public void onCCancelClicked(object sender, EventArgs args)
 		{
 			//unselect all the contacts
-			foreach (cItem c in clist)
+			for (int i = 0; i < clist.Count; i++)
 			{
-				c.cChecked = false;
+				clist[i].cChecked = false;
 			}
 			cMultiSelect.IsToggled = false;
 		}
@@ -101,10 +108,11 @@ namespace QuickContacts
 				if (c.cChecked == true) selectedList.Add(c);
 			}
 
-			foreach (cItem c in clist)
+			for (int i = 0; i < clist.Count; i++)
 			{
-				c.cChecked = false;
+				clist[i].cChecked = false;
 			}
+
 			cMultiSelect.IsToggled = false;
 		}
 	}
