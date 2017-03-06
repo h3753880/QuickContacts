@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Linq;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace QuickContacts
 {
@@ -48,7 +49,8 @@ namespace QuickContacts
 				}
 			}
 			cdListView.ItemsSource = cdItems;
-			cdImage.Source = ImageSource.FromUri(new Uri("http://graph.facebook.com/" + fbId + "/picture?type=small"));
+			cdImage.Source 
+			       = ImageSource.FromUri(new Uri("http://graph.facebook.com/" + qc.myIdfriendId.Split(',')[1] + "/picture?type=small"));
 		}
 
 		public class cdItem
@@ -72,13 +74,22 @@ namespace QuickContacts
 			Navigation.PopAsync();
 		}
 
-		public void onCdExportClicked(object sender, EventArgs args)
+		public async void onCdExportClicked(object sender, EventArgs args)
 		{
-			DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+			// export data to mobile contacts
+			// export data to contacts
+			IAddContactsInfo addContacts = DependencyService.Get<IAddContactsInfo>();
+			QContactDB qcdb = new QContactDB();
+			QContact qc = qcdb.GetQContact(keyId);
+
+			Debug.WriteLine(qc.FirstName);
+			addContacts.AddContacts(qc);
+
+			await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
 			//cause android crash, seeking solutions
 			//Page page = Navigation.NavigationStack.First();
 			//Navigation.RemovePage(page);
-			Navigation.PopAsync();
+			await Navigation.PopAsync();
 		}
 
 	}

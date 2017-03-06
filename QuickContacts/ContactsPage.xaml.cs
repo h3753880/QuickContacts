@@ -16,6 +16,7 @@ namespace QuickContacts
 			InitializeComponent();
 
 			var qcs = qcdb.GetQContacts(fbId);
+
 			ShowContacts((List<QContact>)qcs);
 			cListView.ItemsSource = clist;
 		}
@@ -29,7 +30,7 @@ namespace QuickContacts
 				{
 					cItem c = new cItem();
 					//for test
-					c.cSource = "http://graph.facebook.com/" + fbId + "/picture?type=small";
+					c.cSource = "http://graph.facebook.com/" + qc.myIdfriendId.Split(',')[1] + "/picture?type=small";
 					c.cName = qc.FirstName + " " + qc.LastName;
 					c.cId = qc.myIdfriendId;
 					c.cChecked = false;
@@ -92,10 +93,8 @@ namespace QuickContacts
 			cMultiSelect.IsToggled = false;
 		}
 
-		public void onCExportClicked(object sender, EventArgs args)
+		public async void onCExportClicked(object sender, EventArgs args)
 		{
-			DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
-
 			//get the selected contact list
 			List<cItem> selectedList = new List<cItem>();
 			foreach (cItem c in clist)
@@ -107,6 +106,8 @@ namespace QuickContacts
 			ShowContacts((List<QContact>)qcs);
 
 			cMultiSelect.IsToggled = false;
+
+			await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
 		}
 
 		protected override void OnAppearing() 

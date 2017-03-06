@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 
@@ -9,6 +10,7 @@ namespace QuickContacts
 	{
 		ZXingScannerView zxing;
 		ZXingDefaultOverlay overlay;
+		QContact qc;
 
 		public QRScanPage()
 		{
@@ -25,12 +27,16 @@ namespace QuickContacts
 					// Stop analysis until we navigate away so we don't keep reading barcodes
 					zxing.IsAnalyzing = false;
 					zxing.IsScanning = false;
-					// Store result
-					var answer = await DisplayAlert(result.Text, "Bob Stone Scanned!", "Done", "Export");
+					// Store result to db
+					string name = AddToDB(result.Text);
+					var answer = await DisplayAlert("Message", name + " Scanned!", "Done", "Export");
 					// Export
 					if (!answer)
 					{
 						// export data to contacts
+						IAddContactsInfo addContacts = DependencyService.Get<IAddContactsInfo>();
+
+						addContacts.AddContacts(qc);
 					}	
 					// Navigate away
 					await Navigation.PopModalAsync();
@@ -83,6 +89,26 @@ namespace QuickContacts
 			zxing.IsScanning = false;
 
 			base.OnDisappearing();
+		}
+
+		private string AddToDB(string json)
+		{
+			qc = JsonConvert.DeserializeObject<QContact>(json);
+			QContactDB qcdb = new QContactDB();
+
+			string[] friendId = qc.myIdfriendId.Split(',');
+			qc.myIdfriendId = Helpers.Settings.UserId + "," + friendId[0];
+
+			if (qcdb.ExistQContact(qc.myIdfriendId))
+			{
+				qcdb.UpdateQContact(qc);
+			}
+			else
+			{
+				qcdb.AddQContact(qc);
+			}
+
+			return qc.FirstName + " " + qc.LastName;
 		}
 	}
 }

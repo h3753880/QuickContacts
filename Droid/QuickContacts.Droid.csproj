@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>QuickContacts.Droid</RootNamespace>
     <AssemblyName>QuickContacts.Droid</AssemblyName>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -112,6 +112,9 @@
     <Reference Include="Facebook">
       <HintPath>..\Components\facebook-sdk-6.2.2\lib\android\Facebook.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuickContacts\QuickContacts.csproj">
@@ -125,6 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="SQLite_Android.cs" />
+    <Compile Include="ExportContacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

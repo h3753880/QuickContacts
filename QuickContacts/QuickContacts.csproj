@@ -104,6 +104,7 @@
     <Compile Include="QRScanPage.xaml.cs">
       <DependentUpon>QRScanPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IAddContactsInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -138,6 +139,9 @@
     </Reference>
     <Reference Include="ZXing.Net.Mobile.Forms">
       <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
