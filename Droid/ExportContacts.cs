@@ -35,7 +35,7 @@ namespace QuickContacts.Droid
 			builder.WithValue(ContactsContract.CommonDataKinds.StructuredName.GivenName, qc.FirstName);
 			ops.Add(builder.Build());
 
-			//Number
+			//MOBILE
 			builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
 			builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, rawContactInsertIndex);
 			builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
@@ -58,13 +58,13 @@ namespace QuickContacts.Droid
 			ops.Add(builder.Build());
 
 			//Address
-			/*builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
+			builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);
 			builder.WithValueBackReference(ContactsContract.Data.InterfaceConsts.RawContactId, rawContactInsertIndex);
 			builder.WithValue(ContactsContract.Data.InterfaceConsts.Mimetype,
 				ContactsContract.CommonDataKinds.StructuredPostal.ContentItemType);
-			builder.WithValue(ContactsContract.CommonDataKinds.StructuredPostal.Street, "39s 21st");
-			builder.WithValue(ContactsContract.CommonDataKinds.StructuredPostal.City, "Taipei");
-			ops.Add(builder.Build());*/
+			builder.WithValue(ContactsContract.CommonDataKinds.StructuredPostal.Street, qc.Addr);
+			builder.WithValue(ContactsContract.CommonDataKinds.StructuredPostal.City, "");
+			ops.Add(builder.Build());
 
 			try
 			{

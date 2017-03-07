@@ -34,6 +34,13 @@ namespace QuickContacts.iOS
 			var email = new[] { homeEmail };
 			contact.EmailAddresses = email;
 
+			// Add work address
+			var workAddress = new CNMutablePostalAddress()
+			{
+				Street = PreventNull(qc.Addr)
+			};
+			contact.PostalAddresses = new[] { new CNLabeledValue<CNPostalAddress>(CNLabelKey.Work, workAddress) };
+
 			// Save new contact
 			var store = new CNContactStore();
 			var saveRequest = new CNSaveRequest();
@@ -53,7 +60,7 @@ namespace QuickContacts.iOS
 		private string PreventNull(string input)
 		{
 			if (input == null)
-				return "";
+				return string.Empty;
 			return input;
 		}
 	}
