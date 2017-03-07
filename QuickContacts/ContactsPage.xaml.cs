@@ -95,11 +95,17 @@ namespace QuickContacts
 
 		public async void onCExportClicked(object sender, EventArgs args)
 		{
+			IAddContactsInfo addContacts = DependencyService.Get<IAddContactsInfo>();
+
 			//get the selected contact list
 			List<cItem> selectedList = new List<cItem>();
 			foreach (cItem c in clist)
 			{
 				if (c.cChecked == true) selectedList.Add(c);
+
+				//export data
+				QContact qc = qcdb.GetQContact(c.cId);
+				addContacts.AddContacts(qc);
 			}
 
 			var qcs = qcdb.GetQContacts(fbId);
