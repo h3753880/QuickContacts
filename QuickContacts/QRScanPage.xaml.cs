@@ -46,11 +46,7 @@ namespace QuickContacts
 			{
 				TopText = "Hold your phone up to the barcode",
 				BottomText = "Scanning will happen automatically",
-				ShowFlashButton = zxing.HasTorch
-			};
-			overlay.FlashButtonClicked += (sender, e) =>
-			{
-				zxing.IsTorchOn = !zxing.IsTorchOn;
+				ShowFlashButton = false
 			};
 
 			var grid = new Grid();
