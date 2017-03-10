@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			xmlns:m16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
 	        x:Class="QuickContacts.ContactsPage"
 			Title="Contacts"
 			BackgroundColor="White">
@@ -48,11 +49,12 @@
 													HorizontalOptions="Fill"
 													VerticalOptions="CenterAndExpand"/>
 												
-											<Switch Grid.Column="2" 
+											<m16:Checkbox Grid.Column="2" 
 													HorizontalOptions="EndAndExpand"
 													BindingContext="{x:Reference cMultiSelect}"
+													WidthRequest="40"
 													IsVisible="{Binding Path=IsToggled}"
-													IsToggled="{Binding cChecked}"
+													Checked="{Binding cChecked, Mode=TwoWay}"
 													VerticalOptions="CenterAndExpand"/>
 										</Grid>
 									</ViewCell.View>

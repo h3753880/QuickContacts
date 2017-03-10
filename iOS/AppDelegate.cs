@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Messier16.Forms.iOS.Controls;
 using UIKit;
 
 namespace QuickContacts.iOS
@@ -14,6 +15,7 @@ namespace QuickContacts.iOS
 		{
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			global::Xamarin.Forms.Forms.Init();
+			Messier16Controls.InitAll();
 
 			LoadApplication(new App());
 
