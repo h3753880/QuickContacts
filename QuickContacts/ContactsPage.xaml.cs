@@ -101,11 +101,14 @@ namespace QuickContacts
 			List<cItem> selectedList = new List<cItem>();
 			foreach (cItem c in clist)
 			{
-				if (c.cChecked == true) selectedList.Add(c);
-
-				//export data
-				QContact qc = qcdb.GetQContact(c.cId);
-				addContacts.AddContacts(qc);
+				if (c.cChecked == true)
+				{
+					selectedList.Add(c);
+				
+					//export data
+					QContact qc = qcdb.GetQContact(c.cId);
+					addContacts.AddContacts(qc);
+				}
 			}
 
 			var qcs = qcdb.GetQContacts(fbId);

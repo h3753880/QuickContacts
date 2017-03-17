@@ -131,14 +131,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook">
-      <HintPath>..\Components\facebook-sdk-6.2.2\lib\ios-unified\Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="Messier16.Forms.Controls">
       <HintPath>..\packages\Messier16.Forms.Controls.0.3.0\lib\Xamarin.iOS10\Messier16.Forms.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Messier16.Forms.iOS.Controls">
       <HintPath>..\packages\Messier16.Forms.Controls.0.3.0\lib\Xamarin.iOS10\Messier16.Forms.iOS.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\Components\facebook-sdk-6.2.2\lib\ios-unified\Facebook.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
