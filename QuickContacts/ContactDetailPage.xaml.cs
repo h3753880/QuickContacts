@@ -83,9 +83,12 @@ namespace QuickContacts
 			QContact qc = qcdb.GetQContact(keyId);
 
 			Debug.WriteLine(qc.FirstName);
-			addContacts.AddContacts(qc);
+			bool exResult = addContacts.AddContacts(qc);
 
-			await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+			if (exResult)
+				await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+			else
+				await DisplayAlert("ERROR", "Exporting Fail", "OK");
 			//cause android crash, seeking solutions
 			//Page page = Navigation.NavigationStack.First();
 			//Navigation.RemovePage(page);

@@ -38,7 +38,8 @@ namespace QuickContacts
 			};
 
 			barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
-			barcode.BarcodeOptions.Width = 250;
+
+			barcode.BarcodeOptions.Width = Device.OnPlatform(200, 250, 250);
 			barcode.BarcodeOptions.Height = 250;
 			barcode.BarcodeOptions.Margin = 10;
 			barcode.BarcodeValue = myJson;

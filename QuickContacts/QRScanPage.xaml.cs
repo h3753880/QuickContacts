@@ -36,8 +36,13 @@ namespace QuickContacts
 						// export data to contacts
 						IAddContactsInfo addContacts = DependencyService.Get<IAddContactsInfo>();
 
-						addContacts.AddContacts(qc);
-					}	
+						bool exResult = addContacts.AddContacts(qc);
+
+						if (exResult)
+							await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+						else
+							await DisplayAlert("ERROR", "Exporting Fail", "OK");
+					}
 					// Navigate away
 					await Navigation.PopModalAsync();
 				});
