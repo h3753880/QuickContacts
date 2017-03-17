@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-			xmlns:m16="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+			xmlns:cb="clr-namespace:QuickContacts;assembly=QuickContacts"
 	        x:Class="QuickContacts.ContactsPage"
 			Title="Contacts"
 			BackgroundColor="White">
@@ -24,8 +24,9 @@
 
 				<StackLayout Padding="5, 0, 0, 0" >
 					<ListView x:Name="cListView"
-							RowHeight="70"
-							ItemSelected="cItemSelected" >
+								RowHeight="70"
+								ItemsSource="{Binding clist}"
+								ItemSelected="cItemSelected" >
 						<ListView.ItemTemplate>
 					    	<DataTemplate>
 								<ViewCell>
@@ -49,12 +50,12 @@
 													HorizontalOptions="Fill"
 													VerticalOptions="CenterAndExpand"/>
 												
-											<m16:Checkbox Grid.Column="2" 
+											<cb:CheckBox Grid.Column="2" 
 													HorizontalOptions="EndAndExpand"
 													BindingContext="{x:Reference cMultiSelect}"
 													WidthRequest="40"
 													IsVisible="{Binding Path=IsToggled}"
-													Checked="{Binding cChecked, Mode=TwoWay}"
+													IsChecked="{Binding cChecked, Mode=TwoWay}"
 													VerticalOptions="CenterAndExpand"/>
 										</Grid>
 									</ViewCell.View>

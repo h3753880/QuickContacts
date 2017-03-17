@@ -62,7 +62,7 @@ namespace QuickContacts
 			{
 				//bug to be fixed, tag the item, the switch should be toggled
 				//int index = clist.IndexOf(c);
-				c.cChecked = true;
+				c.cChecked = !c.cChecked;
 				//clist[index] = c;
 
 				((ListView)sender).SelectedItem = null;
