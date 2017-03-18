@@ -5,7 +5,7 @@
 	x:Class="QuickContacts.CheckBox">
 
 	<StackLayout Orientation="Horizontal">
-        <Label x:Name="boxLabel" Text="&#x2610;" />
+        <Label x:Name="boxLabel" Text="&#x2610;" TextColor="Accent" FontSize="Large"/>
         <Label x:Name="textLabel" />
     </StackLayout>
 

@@ -52,7 +52,7 @@
 												
 											<cb:CheckBox Grid.Column="2" 
 													HorizontalOptions="EndAndExpand"
-													IsChecked="{Binding cChecked}"
+													IsChecked="{Binding cChecked, Mode=TwoWay}"
 													WidthRequest="40"
 													IsVisible="{Binding Path=IsToggled, Source={x:Reference cMultiSelect}}"
 													VerticalOptions="CenterAndExpand"/>
