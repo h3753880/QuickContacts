@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace QuickContacts
@@ -118,10 +119,11 @@ namespace QuickContacts
 			List<cItem> selectedList = new List<cItem>();
 			foreach (cItem c in clist)
 			{
+				Debug.WriteLine(c.cChecked);
 				if (c.cChecked == true)
 				{
 					selectedList.Add(c);
-				
+
 					//export data
 					QContact qc = qcdb.GetQContact(c.cId);
 					addContacts.AddContacts(qc);

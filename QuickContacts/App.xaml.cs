@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace QuickContacts
 {
@@ -17,7 +18,19 @@ namespace QuickContacts
 
 			if (string.IsNullOrEmpty(Helpers.Settings.UserId))
 			{
-				MainPage = new LoginPage();
+				//checked network
+				var networkConnection = DependencyService.Get<INetworkConnection>();
+				networkConnection.CheckNetworkConnection();
+
+				bool networkStatus = networkConnection.IsConnected;
+				Debug.WriteLine(networkStatus + " status");
+
+				if (!networkStatus)
+				{
+					MainPage = new NoInternetPage();
+				}
+				else
+					MainPage = new LoginPage();
 			}
 			else
 			{

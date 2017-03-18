@@ -162,6 +162,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="SQLite_iOS.cs" />
     <Compile Include="ExportContacts.cs" />
+    <Compile Include="NetworkConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\profile.jpg" />
