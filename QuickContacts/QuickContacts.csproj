@@ -63,6 +63,9 @@
     <EmbeddedResource Include="CheckBox.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="MSelectIcon.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -112,6 +115,9 @@
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="INetworkConnection.cs" />
+    <Compile Include="MSelectIcon.xaml.cs">
+      <DependentUpon>MSelectIcon.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

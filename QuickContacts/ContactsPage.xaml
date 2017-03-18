@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			xmlns:cb="clr-namespace:QuickContacts;assembly=QuickContacts"
+			xmlns:msi="clr-namespace:QuickContacts;assembly=QuickContacts"
 	        x:Class="QuickContacts.ContactsPage"
 			Title="Contacts"
 			BackgroundColor="White">
@@ -9,17 +10,17 @@
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>
-				<StackLayout Orientation="Horizontal" BackgroundColor="#50FFA500">
+				<StackLayout Orientation="Horizontal" BackgroundColor="#80FFA500">
 					<SearchBar x:Name="contactSearch"
 								HorizontalOptions="FillAndExpand"
-								BackgroundColor="#50FFA500"
+								BackgroundColor="#00FFA500"
 								Placeholder="Search" 
 								TextChanged="onSearchTextChanged" />
 
-					<Switch x:Name="cMultiSelect"
-							HorizontalOptions="End"
-							VerticalOptions="CenterAndExpand"
-							Toggled="onCMultiSelect" />
+					<msi:MSelectIcon x:Name="cMultiSelect"
+									HorizontalOptions="End"
+									VerticalOptions="CenterAndExpand"
+									IsToggled="false" />
 				</StackLayout>
 
 				<StackLayout Padding="5, 0, 0, 0" >
