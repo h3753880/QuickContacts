@@ -76,9 +76,11 @@ namespace QuickContacts
 			else
 			{
 				//bug to be fixed, tag the item, the switch should be toggled
-				//int index = clist.IndexOf(c);
-				c.cChecked = !c.cChecked;
+				int index = clist.IndexOf(c);
 				//clist[index] = c;
+				clist.Remove(c);
+				c.cChecked = !c.cChecked;
+				clist.Insert(index, c);
 
 				((ListView)sender).SelectedItem = null;
 			}
@@ -132,14 +134,6 @@ namespace QuickContacts
 			cMultiSelect.IsToggled = false;
 
 			await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
-		}
-
-		protected override void OnAppearing() 
-		{ 	
-			base.OnAppearing(); 
-
-			//var qcs = qcdb.GetQContacts(fbId);
-			//ShowContacts((List<QContact>)qcs);
 		}
 	}
 }
