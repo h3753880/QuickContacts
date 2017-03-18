@@ -68,6 +68,11 @@ namespace QuickContacts
 		{
 			QContactDB qcdb = new QContactDB();
 			qcdb.DeleteQContact(keyId);
+
+			// Sent message to inform Contacts Page to delete the item
+			MessagingCenter.Send<ContactDetailPage, string>
+				(this, "DeleteInformation", keyId);
+
 			//cause android crash, seeking solutions
 			//Page page = Navigation.NavigationStack.First();
 			//Navigation.RemovePage(page);

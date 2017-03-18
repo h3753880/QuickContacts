@@ -19,6 +19,21 @@ namespace QuickContacts
 
 			ShowContacts((List<QContact>)qcs);
 			cListView.ItemsSource = clist;
+
+			// Receive message to delete the corresponding item
+			MessagingCenter.Subscribe<ContactDetailPage, string>
+				(this, "DeleteInformation", (sender, arg) =>
+				{
+					// If the object exists, remove it.
+					foreach (cItem tmp in clist)
+					{
+						if (tmp.cId.Equals(arg))
+						{
+							clist.Remove(tmp);
+							break;
+						}
+					}
+				});
 		}
 
 		public void ShowContacts(List<QContact> qcs)
@@ -123,8 +138,8 @@ namespace QuickContacts
 		{ 	
 			base.OnAppearing(); 
 
-			var qcs = qcdb.GetQContacts(fbId);
-			ShowContacts((List<QContact>)qcs);
+			//var qcs = qcdb.GetQContacts(fbId);
+			//ShowContacts((List<QContact>)qcs);
 		}
 	}
 }
