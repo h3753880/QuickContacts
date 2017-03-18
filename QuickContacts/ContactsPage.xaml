@@ -31,7 +31,7 @@
 					    	<DataTemplate>
 								<ViewCell>
 									<ViewCell.View>
-										<Grid x:Name="grid" >
+										<Grid>
 											<Grid.ColumnDefinitions>
 												<ColumnDefinition Width="*"/>
 												<ColumnDefinition Width="*"/>

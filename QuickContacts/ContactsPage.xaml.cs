@@ -76,9 +76,9 @@ namespace QuickContacts
 			}
 			else
 			{
-				//bug to be fixed, tag the item, the switch should be toggled
 				int index = clist.IndexOf(c);
-				//clist[index] = c;
+				// observablecollection does nor raise propertychanged event when only updating the content of the item
+				// remove the item then add it back, to generate the property change event from the observablecollection 
 				clist.Remove(c);
 				c.cChecked = !c.cChecked;
 				clist.Insert(index, c);
@@ -117,12 +117,14 @@ namespace QuickContacts
 
 			//get the selected contact list
 			List<cItem> selectedList = new List<cItem>();
+			bool hasChecked = false;
 			foreach (cItem c in clist)
 			{
 				Debug.WriteLine(c.cChecked);
 				if (c.cChecked == true)
 				{
 					selectedList.Add(c);
+					hasChecked = true;
 
 					//export data
 					QContact qc = qcdb.GetQContact(c.cId);
@@ -130,12 +132,17 @@ namespace QuickContacts
 				}
 			}
 
-			var qcs = qcdb.GetQContacts(fbId);
-			ShowContacts((List<QContact>)qcs);
-
-			cMultiSelect.IsToggled = false;
-
-			await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+			if (hasChecked)
+			{
+				await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
+				var qcs = qcdb.GetQContacts(fbId);
+				ShowContacts((List<QContact>)qcs);
+				cMultiSelect.IsToggled = false;
+			}
+			else
+			{
+				await DisplayAlert("Confirm", "No items selected", "OK");
+			}
 		}
 	}
 }
