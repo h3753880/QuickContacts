@@ -6,30 +6,6 @@ namespace QuickContacts
 {
 	public partial class CheckBox : ContentView
 	{
-		public static readonly BindableProperty TextProperty =
-			BindableProperty.Create(
-				"Text",
-				typeof(string),
-				typeof(CheckBox),
-				null,
-				propertyChanged: (bindable, oldValue, newValue) =>
-				{
-					((CheckBox)bindable).textLabel.Text = (string)newValue;
-				});
-
-		public static readonly BindableProperty FontSizeProperty =
-			BindableProperty.Create(
-				"FontSize",
-				typeof(double),
-				typeof(CheckBox),
-				Device.GetNamedSize(NamedSize.Default, typeof(Label)),
-				propertyChanged: (bindable, oldValue, newValue) =>
-				{
-					CheckBox checkbox = (CheckBox)bindable;
-					checkbox.boxLabel.FontSize = (double)newValue;
-					checkbox.textLabel.FontSize = (double)newValue;
-				});
-
 		public static readonly BindableProperty IsCheckedProperty =
 			BindableProperty.Create(
 				"IsChecked",
@@ -38,10 +14,16 @@ namespace QuickContacts
 				false,
 				propertyChanged: (bindable, oldValue, newValue) =>
 				{
-					// Set the graphic.
 					CheckBox checkbox = (CheckBox)bindable;
-					checkbox.boxLabel.Text = (bool)newValue ? "\u2611" : "\u2610";
-
+					// Set the graphic.
+					if (!(bool)newValue)
+					{
+						checkbox.boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_uncheck.png");
+					} 
+					else 
+					{
+						checkbox.boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_tick.png");
+					}
 					// Fire the event.
 					EventHandler<bool> eventHandler = checkbox.CheckedChanged;
 					if (eventHandler != null)
@@ -55,24 +37,22 @@ namespace QuickContacts
 		public CheckBox()
 		{
 			InitializeComponent();
-		}
-
-		public string Text
-		{
-			set { SetValue(TextProperty, value); }
-			get { return (string)GetValue(TextProperty); }
-		}
-
-		[TypeConverter(typeof(FontSizeConverter))]
-		public double FontSize
-		{
-			set { SetValue(FontSizeProperty, value); }
-			get { return (double)GetValue(FontSizeProperty); }
+			boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_uncheck.png");
 		}
 
 		public bool IsChecked
 		{
-			set { SetValue(IsCheckedProperty, value); }
+			set { 
+				SetValue(IsCheckedProperty, value);
+				if (IsChecked)
+				{
+					boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_tick.png");
+				}
+				else
+				{
+					boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_uncheck.png");
+				}
+			}
 			get { return (bool)GetValue(IsCheckedProperty); }
 		}
 

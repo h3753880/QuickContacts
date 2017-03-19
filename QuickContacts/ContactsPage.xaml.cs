@@ -20,7 +20,6 @@ namespace QuickContacts
 
 			ShowContacts((List<QContact>)qcs);
 			cListView.ItemsSource = clist;
-			Debug.WriteLine("Color.Accent:  " + Color.Accent);
 
 			// Receive message to delete the corresponding item
 			MessagingCenter.Subscribe<ContactDetailPage, string>

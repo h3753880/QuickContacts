@@ -2,6 +2,7 @@
 <ContentView
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:QuickContacts;assembly=QuickContacts"
 	x:Class="QuickContacts.CheckBox">
 
 	<ContentView.Resources>
@@ -14,7 +15,10 @@
 	</ContentView.Resources>
 
 	<StackLayout Orientation="Horizontal">
-        <Label x:Name="boxLabel" Text="&#x2610;" TextColor="#FF4081" FontSize="Large"/>
+        <!--Label x:Name="boxLabel" Text="&#x2610;" TextColor="#FF4081" FontSize="Large"/-->
+		<Image x:Name="boxImage" 
+				WidthRequest="20" 
+				HeightRequest="20" />
         <Label x:Name="textLabel" />
     </StackLayout>
 

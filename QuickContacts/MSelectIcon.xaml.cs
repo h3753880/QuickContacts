@@ -36,7 +36,17 @@ namespace QuickContacts
 
 		public bool IsToggled
 		{
-			set { SetValue(IsToggledProperty, value); }
+			set { 
+				SetValue(IsToggledProperty, value); 
+				if (!IsToggled)
+				{
+					iconLabel1.TextColor = Color.FromHex("777777");
+				}
+				else
+				{
+					iconLabel1.TextColor = Color.FromHex("#FF4081");
+				}
+			}
 			get { return (bool)GetValue(IsToggledProperty); }
 		}
 
@@ -44,14 +54,6 @@ namespace QuickContacts
 		void OnMSelectIconTapped(object sender, EventArgs args)
 		{
 			IsToggled = !IsToggled;
-			if (!IsToggled)
-			{
-				iconLabel1.TextColor = Color.FromHex("777777");
-			}
-			else
-			{
-				iconLabel1.TextColor = Color.FromHex("#FF4081");
-			}
 		}
 	}
 }
