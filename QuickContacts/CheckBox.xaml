@@ -5,15 +5,6 @@
 	xmlns:local="clr-namespace:QuickContacts;assembly=QuickContacts"
 	x:Class="QuickContacts.CheckBox">
 
-	<ContentView.Resources>
-		<ResourceDictionary>
-			<Style TargetType="Label">
-				<Setter Property="TextColor" Value="#FF4081" />
-				<Setter Property="FontFamily" Value="#PragmataPro" />
-			</Style>
-		</ResourceDictionary>
-	</ContentView.Resources>
-
 	<StackLayout Orientation="Horizontal">
         <!--Label x:Name="boxLabel" Text="&#x2610;" TextColor="#FF4081" FontSize="Large"/-->
 		<Image x:Name="boxImage" 

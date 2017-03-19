@@ -3,19 +3,12 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="QuickContacts.MSelectIcon"
-	 BackgroundColor="#00FFA500">
-
-	<ContentView.Resources>
-		<ResourceDictionary>
-			<Style TargetType="Label">
-				<Setter Property="TextColor" Value="#777777" />
-				<Setter Property="FontFamily" Value="#PragmataPro" />
-			</Style>
-		</ResourceDictionary>
-	</ContentView.Resources>
+	BackgroundColor="#00FFA500">
 
 	<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0, 0, 10, 0" Spacing="0">
-		<Label x:Name="iconLabel1" Text="&#x21c5;" FontSize="Large" HorizontalOptions="End" VerticalOptions="End"/>	
+		<Image x:Name="seImage" 
+				WidthRequest="25" 
+				HeightRequest="25" />
 	</StackLayout>
 
     <ContentView.GestureRecognizers>

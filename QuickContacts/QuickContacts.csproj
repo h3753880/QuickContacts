@@ -66,8 +66,10 @@
     <EmbeddedResource Include="MSelectIcon.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images\checkbox_tick.png" />
     <EmbeddedResource Include="Images\checkbox_uncheck.png" />
+    <EmbeddedResource Include="Images\checkbox_tick.png" />
+    <EmbeddedResource Include="Images\multiselect_on.png" />
+    <EmbeddedResource Include="Images\multiselect_off.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

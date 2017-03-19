@@ -17,7 +17,15 @@ namespace QuickContacts
 					// Set the graphic.
 					MSelectIcon msIcon = (MSelectIcon)bindable;
 
-					//MSelectIcon.boxLabel.Text = (bool)newValue ? "\u2611" : "\u2610";
+					// Update the image
+					if (!(bool)newValue)
+					{
+						msIcon.seImage.Source = ImageSource.FromResource("QuickContacts.Images.multiselect_off.png");
+					}
+					else
+					{
+						msIcon.seImage.Source = ImageSource.FromResource("QuickContacts.Images.multiselect_on.png");
+					}
 
 					// Fire the event.
 					EventHandler<bool> eventHandler = msIcon.IsToggledChanged;
@@ -32,19 +40,21 @@ namespace QuickContacts
 		public MSelectIcon()
 		{
 			InitializeComponent();
+			seImage.Source = ImageSource.FromResource("QuickContacts.Images.multiselect_off.png");
 		}
 
 		public bool IsToggled
 		{
 			set { 
 				SetValue(IsToggledProperty, value); 
+				// Update the image
 				if (!IsToggled)
 				{
-					iconLabel1.TextColor = Color.FromHex("777777");
+					seImage.Source = ImageSource.FromResource("QuickContacts.Images.multiselect_off.png");
 				}
 				else
 				{
-					iconLabel1.TextColor = Color.FromHex("#FF4081");
+					seImage.Source = ImageSource.FromResource("QuickContacts.Images.multiselect_on.png");
 				}
 			}
 			get { return (bool)GetValue(IsToggledProperty); }

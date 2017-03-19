@@ -15,7 +15,8 @@ namespace QuickContacts
 				propertyChanged: (bindable, oldValue, newValue) =>
 				{
 					CheckBox checkbox = (CheckBox)bindable;
-					// Set the graphic.
+					
+					// Update the image
 					if (!(bool)newValue)
 					{
 						checkbox.boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_uncheck.png");
@@ -24,6 +25,7 @@ namespace QuickContacts
 					{
 						checkbox.boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_tick.png");
 					}
+					
 					// Fire the event.
 					EventHandler<bool> eventHandler = checkbox.CheckedChanged;
 					if (eventHandler != null)
@@ -44,6 +46,7 @@ namespace QuickContacts
 		{
 			set { 
 				SetValue(IsCheckedProperty, value);
+				// Update the image
 				if (IsChecked)
 				{
 					boxImage.Source = ImageSource.FromResource("QuickContacts.Images.checkbox_tick.png");
