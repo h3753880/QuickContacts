@@ -33,7 +33,7 @@ namespace QuickContacts
 			if(qc.WorkFax != null) peWorkFax.Text = qc.WorkFax;
 			if(qc.Addr != null) peAddr.Text = qc.Addr;
 			if(qc.Email != null) peEmail.Text = qc.Email;
-			if(qc.Birthday != null) peBirthday.Text = qc.Birthday;
+			if(qc.Birthday != null) peBirthday.Date = qc.Birthday;
 			if(qc.URL != null) peURL.Text = qc.URL;
 			if(qc.Skype != null) peSkype.Text = qc.Skype;
 			if(qc.Facebook != null) peFacebook.Text = qc.Facebook;
@@ -58,14 +58,14 @@ namespace QuickContacts
 			qc.WorkFax = peWorkFax.Text;
 			qc.Addr = peAddr.Text;
 			qc.Email = peEmail.Text;
-			qc.Birthday = peBirthday.Text;
+			qc.Birthday = peBirthday.Date;
 			qc.URL = peURL.Text;
 			qc.Skype = peSkype.Text;
 			qc.Facebook = peFacebook.Text;
 			qc.LinkedIn = peLinkedIn.Text;
 			qc.Twitter = peTwitter.Text;
 			qc.Instagram = peInstagram.Text;
-			qc.LastModified = "";
+			qc.LastModified = DateTime.Now;
 
 			if (qcdb.ExistQContact(qc.myIdfriendId))
 			{
@@ -76,8 +76,6 @@ namespace QuickContacts
 				qcdb.AddQContact(qc);
 			}
 				
-			
-
 			Application.Current.MainPage = new MainPage();
 		}
 

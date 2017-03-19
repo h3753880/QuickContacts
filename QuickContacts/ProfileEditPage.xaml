@@ -49,9 +49,10 @@
 							Placeholder="Email"
 							Keyboard="Text" />
 
-					<Entry x:Name="peBirthday"
-							Placeholder="Birthday"
-							Keyboard="Text" />
+					<DatePicker x:Name="peBirthday"
+								MinimumDate="01/01/1900" 
+								MaximumDate="01/01/2018"
+								Date="01/01/1990"/>
 
 					<Entry x:Name="peURL"
 							Placeholder="URL"

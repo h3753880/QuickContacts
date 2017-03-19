@@ -140,7 +140,7 @@ namespace QuickContacts
 			List<QContact> qcs = new List<QContact>()
 			{
 				new QContact {myIdfriendId=fbId + ",6", FirstName="Tommy", LastName="Chen", Mobile ="18734780",
-					Company="Apple",Birthday="1/4/1990",HomePhone="12345",WorkPhone="56778",HomeFax="1111",
+					Company="Apple",Birthday=new DateTime(1990, 1, 4),HomePhone="12345",WorkPhone="56778",HomeFax="1111",
 					WorkFax="2222",URL="www.yahoo.com",Skype="ttomy",Facebook="1235",LinkedIn="ttt"
 					,Twitter="www", Instagram="@adad", Addr="35s 21st san jose", Email="adsf@hotmail.com"},
 				new QContact {myIdfriendId=fbId + ",7", FirstName="Steven", LastName="Nash", Mobile ="21591359"},

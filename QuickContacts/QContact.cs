@@ -18,14 +18,14 @@ namespace QuickContacts
 		public string WorkFax { get; set; }
 		public string Addr { get; set; }//
 		public string Email { get; set; }//
-		public string Birthday { get; set; }
+		public DateTime Birthday { get; set; }
 		public string URL { get; set; }
 		public string Skype { get; set; }
 		public string Facebook { get; set; }
 		public string LinkedIn { get; set; }
 		public string Twitter { get; set; }
 		public string Instagram { get; set; }
-		public string LastModified { get; set; }//
+		public DateTime LastModified { get; set; }//
 
 		public QContact()
 		{

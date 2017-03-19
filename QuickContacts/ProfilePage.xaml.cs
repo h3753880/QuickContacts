@@ -29,7 +29,18 @@ namespace QuickContacts
 				{
 					pItem p = new pItem();
 					p.pName = prop.Name;
-					p.pValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+					if (p.pName.Equals("Birthday"))
+					{
+						if (prop.GetValue(qc, null) != null)
+						{
+
+							p.pValue = ((DateTime)prop.GetValue(qc, null)).ToString("MM/dd/yyyy");
+						}
+					}
+					else
+					{
+						p.pValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+					}
 					pItems.Add(p);
 				}
 			}
