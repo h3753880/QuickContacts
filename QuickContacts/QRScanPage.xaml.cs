@@ -56,8 +56,8 @@ namespace QuickContacts
 			};
 
 			var grid = new Grid();
-			grid.RowDefinitions.Add(new RowDefinition { Height = 50 });
 			grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+			grid.RowDefinitions.Add(new RowDefinition { Height = 50 });
 			Button cancelBtn = new Button
 			{
 				Text = "Cancel",
@@ -66,9 +66,10 @@ namespace QuickContacts
 			};
 
 			cancelBtn.Clicked += OnCancelBtnClicked;
-			grid.Children.Add(cancelBtn, 0, 0);
-			grid.Children.Add(zxing, 0, 1);
-			grid.Children.Add(overlay, 0, 1);
+
+			grid.Children.Add(zxing, 0, 0);
+			grid.Children.Add(overlay, 0, 0);
+			grid.Children.Add(cancelBtn, 0, 1);
 
 			// The root page of your application
 			Content = grid;
