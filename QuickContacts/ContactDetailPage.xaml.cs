@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Reflection;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace QuickContacts
 {
@@ -32,18 +33,39 @@ namespace QuickContacts
 				{
 					if (prop.Name.Equals("FirstName"))
 					{
-						cdName.Text += prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
-						cdName.Text += " ";
+						cdLabel.Text += prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+						cdLabel.Text += " ";
 					}
 					else if (prop.Name.Equals("LastName"))
 					{
-						cdName.Text += prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+						cdLabel.Text += prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
 					}
 					else
 					{
 						cdItem cd = new cdItem();
-						cd.cdName = prop.Name;
-						cd.cdValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+						// Add space
+						if (!prop.Name.Equals("LinkedIn"))
+						{
+							cd.cdName = Regex.Replace(prop.Name, "([a-z])_?([A-Z])", "$1 $2");
+						}
+						else
+						{
+							cd.cdName = prop.Name;
+						}
+
+						// Not show the time, only show date
+						if (cd.cdName.Equals("Birthday"))
+						{
+							if (prop.GetValue(qc, null) != null)
+							{
+
+								cd.cdValue = ((DateTime)prop.GetValue(qc, null)).ToString("MM/dd/yyyy");
+							}
+						}
+						else
+						{
+							cd.cdValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
+						}
 						cdItems.Add(cd);
 					}
 				}
@@ -73,9 +95,9 @@ namespace QuickContacts
 			MessagingCenter.Send<ContactDetailPage, string>
 				(this, "DeleteInformation", keyId);
 
-			//cause android crash, seeking solutions
-			//Page page = Navigation.NavigationStack.First();
-			//Navigation.RemovePage(page);
+			// cause android crash, seeking solutions
+			// Page page = Navigation.NavigationStack.First();
+			// Navigation.RemovePage(page);
 			Navigation.PopAsync();
 		}
 
@@ -94,9 +116,9 @@ namespace QuickContacts
 				await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
 			else
 				await DisplayAlert("ERROR", "Exporting Fail", "OK");
-			//cause android crash, seeking solutions
-			//Page page = Navigation.NavigationStack.First();
-			//Navigation.RemovePage(page);
+			// cause android crash, seeking solutions
+			// Page page = Navigation.NavigationStack.First();
+			// Navigation.RemovePage(page);
 			await Navigation.PopAsync();
 		}
 

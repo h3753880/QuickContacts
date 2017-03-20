@@ -23,7 +23,7 @@
 									IsToggled="false" />
 				</StackLayout>
 
-				<StackLayout Padding="5, 0, 0, 0" >
+				<StackLayout Padding="5, 5, 5, 0" >
 					<ListView x:Name="cListView"
 								RowHeight="70"
 								ItemsSource="{Binding clist}"
@@ -49,7 +49,14 @@
 											<Label Grid.Column="1" 
 													Text="{Binding cName}"
 													HorizontalOptions="Fill"
-													VerticalOptions="CenterAndExpand"/>
+													VerticalOptions="CenterAndExpand">
+													<Label.FontFamily>
+												        <OnPlatform x:TypeArguments="x:String">
+												            <OnPlatform.iOS>ChalkboardSE-Light</OnPlatform.iOS>
+												            <OnPlatform.Android>casual</OnPlatform.Android>
+												        </OnPlatform>
+				    								</Label.FontFamily>
+											</Label>
 												
 											<cb:CheckBox Grid.Column="2" 
 													HorizontalOptions="EndAndExpand"

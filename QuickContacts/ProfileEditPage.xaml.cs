@@ -65,7 +65,7 @@ namespace QuickContacts
 			qc.LinkedIn = peLinkedIn.Text;
 			qc.Twitter = peTwitter.Text;
 			qc.Instagram = peInstagram.Text;
-			qc.LastModified = DateTime.Now;
+			qc.LastModified = DateTime.Now.ToLocalTime();
 
 			if (qcdb.ExistQContact(qc.myIdfriendId))
 			{

@@ -6,10 +6,11 @@
 		BackgroundColor="White" >
 
 	<ScrollView>
-		<StackLayout Padding="5, 5, 0, 0">
+		<StackLayout Padding="5, 5, 5, 0">
 			
-			<StackLayout Orientation="Horizontal" Padding="5, 5, 5, 0" >				
+			<StackLayout Orientation="Horizontal" >				
 				<Image x:Name="pImage" WidthRequest="100" HeightRequest="100" />
+				<Label Text="  Me" FontSize="Large" VerticalOptions="CenterAndExpand" />
 			</StackLayout>
 			
 			<ListView x:Name="pListView"
@@ -32,7 +33,15 @@
 									
 									<Label Grid.Column="1" 
 											Text="{Binding pValue}"
-											VerticalOptions="CenterAndExpand"/>
+											VerticalOptions="CenterAndExpand"
+											FontFamily="" >
+											<Label.FontFamily>
+										        <OnPlatform x:TypeArguments="x:String">
+										            <OnPlatform.iOS>ChalkboardSE-Light</OnPlatform.iOS>
+										            <OnPlatform.Android>casual</OnPlatform.Android>
+										        </OnPlatform>
+										    </Label.FontFamily>
+									</Label>
 								</Grid>
 							</ViewCell.View>
 						</ViewCell>
@@ -41,6 +50,7 @@
 			</ListView>
 			
 			<Button Text="Edit My Profile"
+					HorizontalOptions="FillAndExpand"
 					Clicked="onEditClicked" />
 		</StackLayout>
 	</ScrollView>

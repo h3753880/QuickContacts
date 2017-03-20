@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			x:Class="QuickContacts.ProfileEditPage"
+			xmlns:sys="clr-namespace:System;assembly=mscorlib"
 			BackgroundColor="White" 
 			Padding="5, 0, 0, 0" >
-
+	
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>
@@ -23,23 +24,23 @@
 
 					<Entry x:Name="peMobile"
 							Placeholder="Mobile"
-							Keyboard="Text" />
+							Keyboard="Numeric" />
 
 					<Entry x:Name="peHomePhone"
 							Placeholder="Home Phone"
-							Keyboard="Text" />
+							Keyboard="Numeric" />
 
 					<Entry x:Name="peWorkPhone"
 							Placeholder="Work Phone"
-							Keyboard="Text" />
+							Keyboard="Numeric" />
 
 					<Entry x:Name="peHomeFax"
 							Placeholder="Home Fax"
-							Keyboard="Text" />
+							Keyboard="Numeric" />
 
 					<Entry x:Name="peWorkFax"
 							Placeholder="Work Fax"
-							Keyboard="Text" />
+							Keyboard="Numeric" />
 
 					<Entry x:Name="peAddr"
 							Placeholder="Address"
@@ -50,9 +51,9 @@
 							Keyboard="Text" />
 
 					<DatePicker x:Name="peBirthday"
+								Date="{x:Static sys:DateTime.Now}"
 								MinimumDate="01/01/1900" 
-								MaximumDate="01/01/2018"
-								Date="01/01/1990"/>
+								MaximumDate="{x:Static sys:DateTime.Now}"/>
 
 					<Entry x:Name="peURL"
 							Placeholder="URL"

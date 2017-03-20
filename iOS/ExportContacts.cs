@@ -38,7 +38,7 @@ namespace QuickContacts.iOS
 			contact.PostalAddresses = new[] { new CNLabeledValue<CNPostalAddress>(CNLabelKey.Work, workAddress) };
 
 			// ADD BIRTHday
-			string[] birth = PreventNull(qc.Birthday.ToString()).Split('/');
+			string[] birth = PreventNull(qc.Birthday.ToString("MM/dd/yyyy")).Split('/');
 			if (birth.Length == 3)
 			{
 				var birthday = new NSDateComponents()

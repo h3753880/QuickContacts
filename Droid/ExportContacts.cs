@@ -69,7 +69,7 @@ namespace QuickContacts.Droid
 
 			//others-> birthday fb
 			StringBuilder sb = new StringBuilder();
-			sb.Append("Birthday:").Append(qc.Birthday).Append(", Facebook:").Append(qc.Facebook)
+			sb.Append("Birthday:").Append(qc.Birthday.ToString("MM/dd/yyyy")).Append(", Facebook:").Append(qc.Facebook)
 			  .Append(", Instagram:").Append(qc.Instagram).Append(", Twitter:").Append(qc.Twitter)
 			  .Append(", Linkedin:").Append(qc.LinkedIn).Append(", Skype:").Append(qc.Skype);
 			builder = ContentProviderOperation.NewInsert(ContactsContract.Data.ContentUri);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace QuickContacts
 {
@@ -28,7 +29,16 @@ namespace QuickContacts
 				if (!prop.Name.Equals("myIdfriendId"))
 				{
 					pItem p = new pItem();
-					p.pName = prop.Name;
+					// Add space
+					if (!prop.Name.Equals("LinkedIn"))
+					{
+						p.pName = Regex.Replace(prop.Name, "([a-z])_?([A-Z])", "$1 $2");
+					}
+					else
+					{
+						p.pName = prop.Name;
+					}
+
 					if (p.pName.Equals("Birthday"))
 					{
 						if (prop.GetValue(qc, null) != null)

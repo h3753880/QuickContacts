@@ -77,7 +77,7 @@ namespace QuickContacts
 			else
 			{
 				int index = clist.IndexOf(c);
-				// observablecollection does nor raise propertychanged event when only updating the content of the item
+				// ObservableCollection does not raise propertychanged event when only updating the content of the item
 				// remove the item then add it back, to generate the property change event from the observablecollection 
 				clist.Remove(c);
 				c.cChecked = !c.cChecked;
@@ -143,6 +143,12 @@ namespace QuickContacts
 			{
 				await DisplayAlert("Confirm", "No items selected", "OK");
 			}
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			cListView.SelectedItem = null;
 		}
 	}
 }

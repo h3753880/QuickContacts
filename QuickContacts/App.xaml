@@ -11,6 +11,9 @@
 				<Setter Property="BarBackgroundColor" Value="#FFA500" /> 
 				<Setter Property="BarTextColor" Value="#333333" />
 			</Style>
+			<Style TargetType="Label"> 
+				<Setter Property="TextColor" Value="#333333" />
+			</Style>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>
