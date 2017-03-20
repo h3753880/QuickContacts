@@ -62,6 +62,10 @@ namespace QuickContacts
 								cd.cdValue = ((DateTime)prop.GetValue(qc, null)).ToLocalTime().ToString("MM/dd/yyyy");
 							}
 						}
+						else if (cd.cdName.Equals("LastModified"))
+						{
+							cd.cdValue = ((DateTime)prop.GetValue(qc, null)).ToString() + "UTC";
+						}
 						else
 						{
 							cd.cdValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";
@@ -95,9 +99,6 @@ namespace QuickContacts
 			MessagingCenter.Send<ContactDetailPage, string>
 				(this, "DeleteInformation", keyId);
 
-			// cause android crash, seeking solutions
-			// Page page = Navigation.NavigationStack.First();
-			// Navigation.RemovePage(page);
 			Navigation.PopAsync();
 		}
 
@@ -116,9 +117,7 @@ namespace QuickContacts
 				await DisplayAlert("Confirm", "The contact information has been sucessfully exported", "OK");
 			else
 				await DisplayAlert("ERROR", "Exporting Fail", "OK");
-			// cause android crash, seeking solutions
-			// Page page = Navigation.NavigationStack.First();
-			// Navigation.RemovePage(page);
+
 			await Navigation.PopAsync();
 		}
 

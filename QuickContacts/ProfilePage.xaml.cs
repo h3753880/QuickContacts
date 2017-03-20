@@ -47,6 +47,10 @@ namespace QuickContacts
 							p.pValue = ((DateTime)prop.GetValue(qc, null)).ToLocalTime().ToString("MM/dd/yyyy");
 						}
 					}
+					else if (p.pName.Equals("LastModified"))
+					{
+						p.pValue = (((DateTime)prop.GetValue(qc, null)).ToString() + " UTC");
+					}
 					else
 					{
 						p.pValue = prop.GetValue(qc, null) != null ? prop.GetValue(qc, null).ToString() : "";

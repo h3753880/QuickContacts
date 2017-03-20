@@ -101,9 +101,10 @@ namespace QuickContacts
 
 			string[] friendId = qc.myIdfriendId.Split(',');
 			qc.myIdfriendId = Helpers.Settings.UserId + "," + friendId[0];
+			qc.LastModified = System.DateTime.Now;
 
 			if (qcdb.ExistQContact(qc.myIdfriendId))
-			{
+			{	
 				qcdb.UpdateQContact(qc);
 			}
 			else

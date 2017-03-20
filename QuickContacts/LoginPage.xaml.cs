@@ -122,6 +122,12 @@ namespace QuickContacts
 					if (!qcdb.ExistQContact(fbId + "," + fbId))
 					{
 						qc.myIdfriendId = fbId + "," + fbId;
+						string[] names = name.Split(' ');
+						if (names.Length > 1)
+						{
+							qc.FirstName = names[0];
+							qc.LastName = names[1];
+						}
 						qc.LastModified = System.DateTime.Now.ToLocalTime();
 						qcdb.AddQContact(qc);
 
