@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ImageCircle.Forms.Plugin.iOS;
 
 using Foundation;
 using UIKit;
@@ -14,6 +15,7 @@ namespace QuickContacts.iOS
 		{
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			global::Xamarin.Forms.Forms.Init();
+			ImageCircleRenderer.Init();
 
 			LoadApplication(new App());
 

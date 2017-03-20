@@ -1,5 +1,5 @@
 ﻿using System;
-
+using ImageCircle.Forms.Plugin.Droid;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -23,6 +23,7 @@ namespace QuickContacts.Droid
 			base.OnCreate(bundle);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
+			ImageCircleRenderer.Init();
 
 			LoadApplication(new App());
 		}

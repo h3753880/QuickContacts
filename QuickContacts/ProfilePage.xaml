@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		x:Class="QuickContacts.ProfilePage"
+		xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
 		Title="Me"
 		BackgroundColor="White" >
 
 	<ScrollView>
-		<StackLayout Padding="5, 5, 5, 0">
+		<StackLayout Padding="5, 10, 5, 0">
 			
 			<StackLayout Orientation="Horizontal" >				
-				<Image x:Name="pImage" WidthRequest="100" HeightRequest="100" />
+				<controls:CircleImage x:Name="pImage" WidthRequest="100" HeightRequest="100" />
 				<Label Text="  Me" FontSize="Large" VerticalOptions="CenterAndExpand" />
 			</StackLayout>
 			

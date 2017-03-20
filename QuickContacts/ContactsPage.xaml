@@ -4,6 +4,7 @@
 			xmlns:cb="clr-namespace:QuickContacts;assembly=QuickContacts"
 			xmlns:msi="clr-namespace:QuickContacts;assembly=QuickContacts"
 	        x:Class="QuickContacts.ContactsPage"
+			xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
 			Title="Contacts"
 			BackgroundColor="White">
 	
@@ -39,7 +40,7 @@
 												<ColumnDefinition Width="*"/>
 											</Grid.ColumnDefinitions>
 
-											<Image Grid.Column="0" 
+											<controls:CircleImage Grid.Column="0" 
 													Source="{Binding cSource}" 
 													WidthRequest="60"
 													HeightRequest="60"
