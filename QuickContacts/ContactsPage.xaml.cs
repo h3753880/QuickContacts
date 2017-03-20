@@ -141,7 +141,7 @@ namespace QuickContacts
 			}
 			else
 			{
-				await DisplayAlert("Confirm", "No items selected", "OK");
+				await DisplayAlert("Alert", "No items selected", "OK");
 			}
 		}
 

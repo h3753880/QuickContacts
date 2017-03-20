@@ -1,5 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="QuickContacts.QRScanPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style TargetType="Button">
+				<Setter Property="BackgroundColor" Value="#00FFA500" />
+				<Setter Property="BorderColor" Value="#AAAAAA" />
+				<Setter Property="BorderRadius" Value="5" />
+				<Setter Property="TextColor" Value="#FFA500" />
+			</Style>
+			<Style TargetType="Label">
+				<Setter Property="TextColor" Value="#FFA500" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 </ContentPage>

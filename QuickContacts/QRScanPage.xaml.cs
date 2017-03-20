@@ -14,6 +14,7 @@ namespace QuickContacts
 
 		public QRScanPage()
 		{
+			InitializeComponent();
 			Padding = Device.OnPlatform(new Thickness(0, 20, 0, 0), new Thickness(), new Thickness());
 
 			zxing = new ZXingScannerView

@@ -44,7 +44,7 @@ namespace QuickContacts
 						if (prop.GetValue(qc, null) != null)
 						{
 
-							p.pValue = ((DateTime)prop.GetValue(qc, null)).ToString("MM/dd/yyyy");
+							p.pValue = ((DateTime)prop.GetValue(qc, null)).ToLocalTime().ToString("MM/dd/yyyy");
 						}
 					}
 					else

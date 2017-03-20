@@ -59,7 +59,7 @@ namespace QuickContacts
 							if (prop.GetValue(qc, null) != null)
 							{
 
-								cd.cdValue = ((DateTime)prop.GetValue(qc, null)).ToString("MM/dd/yyyy");
+								cd.cdValue = ((DateTime)prop.GetValue(qc, null)).ToLocalTime().ToString("MM/dd/yyyy");
 							}
 						}
 						else
